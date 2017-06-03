@@ -11,11 +11,36 @@ export class AppComponent {
   title = 'app works!';
   private objectData: any
 
-  constructor(loginService: LoginService) {
-    loginService.login().subscribe(data => this.doSomething(data));
+  constructor(private loginService: LoginService) {
+
 
   }
-  private doSomething = function(value) {
-    console.debug(value[0]);
+  login(username: String, password: String) {
+    console.log(username)
+    this.loginService.login(username, password).subscribe(data => this.getUserData(data));
+  }
+
+  loginFacebook() {
+
+    this.loginService.loginFacebook().subscribe(data => this.getUserData(data));
+  }
+  private getUserData = function(value) {
+    console.log(JSON.parse(value._body));
+    let data = JSON.parse(value._body)
+    if (data.success == false) {
+      alert(data.text)
+    } else {
+      alert(data.text)
+    }
+  }
+
+  private getUserDataFacebook = function(value) {
+    console.log(JSON.parse(value._body));
+    let data = JSON.parse(value._body)
+    if (data.success == false) {
+      alert(data.text)
+    } else {
+      alert(data.text)
+    }
   }
 }

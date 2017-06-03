@@ -14,6 +14,10 @@ var schema = new mongoose.Schema({
   },
   faculty: {
     type: String
-  }
+  },
+  history_activity: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'activity'
+  }]
 });
 module.exports = mongoose.model('user', schema);

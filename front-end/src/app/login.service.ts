@@ -10,19 +10,29 @@ export class LoginService {
 
   constructor(private http: Http) {
 
-    console.log("call login")
   }
 
-  public login(): Observable<any> {
+  public login(username: String, password: String): Observable<any> {
     console.log("login")
     let data = {
-      "username": "punnoket",
-      "password": "1234",
+      "username": username,
+      "password": password,
     }
     let body = JSON.stringify(data);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post('http://localhost:3000/login', body, options).map(data => data.json());
+    return this.http.post('http://localhost:3000/login', body, options).map(data => data);
   }
+
+  public loginFacebook(): Observable<any> {
+    console.log("login facebook")
+    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
+
+    headers.append('Authorization', 'Bearer ')
+    let options = new RequestOptions({ method: RequestMethod.Get, headers: headers });
+    return this.http.get('http://localhost:3000/auth/facebook', options).map(data => data);
+  }
+
+
 
 }

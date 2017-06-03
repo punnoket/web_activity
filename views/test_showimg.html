@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+
+<head>
+  <title>TODO supply a title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+  <body>
+
+    </div>
+    <li> เลือกรูปภาพ</li>
+    <br>
+    <div class="formField">
+      <div class="w3-col w3-container m3 l2"></div>
+      <!-- just make it beauty-->
+      <img id="blah" src="#" alt="your image" />
+      <br>
+      <div class="w3-col w3-container m1 l2"></div>
+      <!-- just make it beauty-->
+      <button onclick="readURL()">click</button>
+      <p id="txt"></p>
+
+
+  </body>
+  <!-- W3.CSS Container -->
+
+</html>
+
+<script>
+  function readURL() {
+
+    $.ajax({
+      type: "get",
+      url: "/showimg",
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      success: function(data) {
+        $('#blah')
+          .attr('src', data.activity[3].image)
+          .width(150)
+          .height(200);
+      },
+      failure: function(errMsg) {}
+    });
+    var reader = new FileReader();
+    var img
+
+
+
+  }
+</script>
