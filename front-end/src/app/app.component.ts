@@ -9,11 +9,13 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class AppComponent {
   title = 'app works!';
-  private loginService: LoginService
   private objectData: any
 
-  constructor() {
-    this.loginService.login().subscribe(data => this.objectData = data);
+  constructor(loginService: LoginService) {
+    loginService.login().subscribe(data => this.doSomething(data));
 
+  }
+  private doSomething = function(value) {
+    console.debug(value[0]);
   }
 }
