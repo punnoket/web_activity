@@ -10,13 +10,19 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { VoteComponent } from './vote/vote.component';
+import { AddActivityComponent } from './add-activity/add-activity.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    VoteComponent,
+    AddActivityComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
