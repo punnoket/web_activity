@@ -33,6 +33,14 @@ export class LoginService {
     return this.http.get('http://localhost:3000/auth/facebook', options).map(data => data);
   }
 
+  public logout(): Observable<any> {
+    console.log("logout")
+    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
+
+    let options = new RequestOptions({ method: RequestMethod.Get, headers: headers });
+    return this.http.get('http://localhost:3000/logout', options).map(data => data);
+  }
+
 
 
 }
