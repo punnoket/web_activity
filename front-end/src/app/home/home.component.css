@@ -1,0 +1,48 @@
+.bg-1 { 
+       background-color: #1abc9c; /* Green */
+        color: #ffffff;
+        font-family: 'Ubuntu', sans-serif;
+}
+.bg-2 { 
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+      font-family: 'Ubuntu', sans-serif;
+} 
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: #000000; /* Black */
+    color: #ffffff;
+    font-family: 'Ubuntu', sans-serif;
+}
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+
+.navbar-nav li a:hover {
+    color: #1abc9c !important;
+}
+
+.button {
+            color: black;
+            padding: 8px 8px;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            border-radius: 8px;
+
+        }
+      
+
+        .button:hover {
+            background-color: #FF6633;
+            color: white;
+        }
+
+      

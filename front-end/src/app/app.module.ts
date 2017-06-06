@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { LoginService } from './login.service';
+import { GetAcService } from './getactivity.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -20,7 +21,7 @@ import { HomeComponent } from './home/home.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [LoginService],
+  providers: [LoginService, GetAcService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
