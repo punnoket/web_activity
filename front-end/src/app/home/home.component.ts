@@ -15,21 +15,40 @@ import { Subscription } from 'rxjs/Subscription';
 export class HomeComponent implements OnInit {
 
 
- /* constructor(private getactivity: GetAcService) { 
+  private objectData: any;
+  constructor(private loginService: LoginService, private getactivity: GetAcService) {
     this.getactivity.getActivity().subscribe(data => this.getActivityData(data))
   }
-
-  private objectData: any;*/
-  constructor(private loginService: LoginService) { }
 
 
   ngOnInit() {
   }
 
 
-  /* private getActivityData = function(value) {
-    console.log(JSON.parse(value._body));*/
-   
+  private getActivityData = function(value) {
+    console.log(JSON.parse(value._body));
+  }
+
+  login(username: String, password: String) {
+    console.log(username)
+    this.loginService.login(username, password).subscribe(data => this.getUserData(data));
+  }
+
+  private getUserData = function(value) {
+    console.log(JSON.parse(value._body));
+    let data = JSON.parse(value._body)
+    if (data.success == false) {
+
+      this.check = false;
+      return false
+    } else {
+
+      this.check = true;
+      window.location.href = '/home'
+      return true
+
+    }
+  }
 
   logout() {
 

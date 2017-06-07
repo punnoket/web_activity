@@ -4,8 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routes } from './router';
 
+
+
 import { LoginService } from './login.service';
 import { GetAcService } from './getactivity.service';
+import { AddActivityService } from './add_activity.service';
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -23,7 +27,7 @@ import { AboutComponent } from './about/about.component';
     NavbarComponent,
     VoteComponent,
     AddActComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,7 @@ import { AboutComponent } from './about/about.component';
     HttpModule,
     routes
   ],
-  providers: [LoginService, GetAcService],
+  providers: [LoginService, GetAcService, AddActivityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
