@@ -71,6 +71,15 @@ router.get('/showimg', function(req, res, next) {
 
 //create activity
 router.post('/add_activity', function(req, res) {
+  var choices = []
+  for (var i = 0; i < req.body.choice.length; i++) {
+    choice = {
+      choice: req.body.choice[0],
+      score: 0
+    }
+    choices.push(choice)
+  }
+
 
   var activity = {
     'name': req.body.name,
@@ -84,22 +93,12 @@ router.post('/add_activity', function(req, res) {
     'date': req.body.date,
     'join': 0,
     'owner': req.session.userid,
-    'choice': [{
-      choice: "monday",
-      score: 0
-    }, {
-      choice: "tuesday",
-      score: 0
-    }, {
-      choice: "wednesday",
-      score: 0
-    }]
+    'choice': choices
   }
+  console.log(activity);
   ActivityModel.create(activity, function(err, doc) {
     if (err) {
-      res.status(500).json({
-        message: err
-      });
+
     }
     res.json({
       'success': true,
