@@ -28,6 +28,7 @@ import { AboutComponent } from './about/about.component';
     VoteComponent,
     AddActComponent,
     AboutComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

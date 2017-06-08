@@ -15,6 +15,24 @@
   <!--header-->
   <!-- bink add-->
 
+
+
+
+  <div id="popup1" class="overlay">
+    <div class="popup">
+      <div class="logo"></div>
+      <div class="login-block">
+        <a class="close" href="#">&times;</a>
+        <h1>Login</h1>
+        <input #username type="text" value="" placeholder="Username" id="username" />
+        <input #password type="password" value="" placeholder="Password" id="password" />
+
+        <button (click)="login(username.value, password.value)">Login</button>
+        <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"> <button (click)="loginFacebook()" style="background-color: #3b5998;color: white; border:2px solid #3b5998">Login with facebook</button></div>
+      </div>
+    </div>
+  </div>
+
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
@@ -24,9 +42,12 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li><a routerLink="/add-act" routerLinkActive="active">ADD</a></li>
-
-          <li><a href="/login">LOGIN</a></li>
-
+          <div *ngIf="!check">
+            <li><a href="#popup1">LOGIN</a></li>
+          </div>
+          <div *ngIf="check">
+            <li><a href="#popup1">logout</a></li>
+          </div>
 
         </ul>
       </div>

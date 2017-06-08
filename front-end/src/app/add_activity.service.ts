@@ -14,6 +14,7 @@ export class AddActivityService {
 
   public addActivity(activity: Object): Observable<any> {
     console.log("add activity")
+    console.log(activity)
 
     let body = JSON.stringify(activity);
     let headers = new Headers({ 'Content-Type': 'application/json' });

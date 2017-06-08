@@ -10,11 +10,11 @@ import { ModuleWithProviders } from '@angular/core';
 
 
 export const router: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
-    { path: 'add-act', component: AddActComponent},
-    { path: 'login', component: LoginComponent}
-  
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'add-act', component: AddActComponent },
+  { path: 'login', component: LoginComponent }
+
 ];
 
 

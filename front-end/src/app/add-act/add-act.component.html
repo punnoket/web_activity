@@ -1,72 +1,71 @@
-<!DOCTYPE html>
 <html>
 
 <head>
-    <style>
+  <style>
 
-    </style>
+  </style>
 </head>
 
 <body>
 
-    <h1>Add Your Activity </h1>
+  <h1>Add Your Activity </h1>
 
-    <form>
-          <!-- on / off -->
-        <input type="button" name="on1" id="on1" value="On" onclick="on(1);" /> <input type="button" name="off1" id="off1"
-            value="Off" onclick="off(1);" />
+  <form>
+    <!--<label for="fname">Name of Event</label>
+        <input type="text" id="fname" name="fname">
+        <br>-->
 
 
 
-        <br><br>
-        <div class="well clearfix">
+    <br><br>
+    <div class="well clearfix">
 
-            <div class="col-md-9">
-                <div class="form-group">
-                    <label>* Name of Event</label>
-                    <input type="text" name="ssName" value="" maxlength="30" class="form-control required" title="Please fill your name of event">
-                </div>
-            </div>
-            <br>
+      <div class="col-md-9">
+        <div class="form-group">
+          <label>* Name of Event</label>
+          <input #name type="text" name="ssName" value="" maxlength="30" class="form-control required" title="Please fill your name of event">
+        </div>
+      </div>
+      <br>
 
-            <!-- date -->
-            <div class="col-md-9">
-                <label>* Date</label>
-            </div>
+      <!-- date -->
+      <div class="col-md-9">
+        <label>* Date</label>
+      </div>
 
-            <div class="col-md-9">
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label style="font-size: 15px"> Start Date</label>
-                        <input type="date" name="sdate" value="" maxlength="15" class="form-control required" title="Please fill Start Date">
-                    </div>
-                </div>
+      <div class="col-md-9">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label style="font-size: 15px"> Start Date</label>
+            <input #startDate type="date" name="sdate" value="" maxlength="15" class="form-control required" title="Please fill Start Date">
+          </div>
+        </div>
 
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label style="font-size: 15px"> End Date</label>
-                        <input type="date" name="edate" value="" maxlength="15" class="form-control required" title="Please fill End Date">
-                    </div>
-                </div>
-            </div>
-            <br>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label style="font-size: 15px"> End Date</label>
+            <input #endDate type="date" name="edate" value="" maxlength="15" class="form-control required" title="Please fill End Date">
+          </div>
+        </div>
+      </div>
+      <br>
 
-            <!-- time -->
-            <div class="col-md-9">
-                <label>* Time</label>
-            </div>
+      <!-- time -->
+      <div class="col-md-9">
+        <label>* Time</label>
+      </div>
 
-            <div class="col-md-9">
-                <div class="col-md-3">
-                    <label> Start </label>
-                </div>
-            </div>
+      <div class="col-md-9">
+        <div class="col-md-3">
+          <label> Start </label>
+        </div>
+      </div>
 
-            <div class="col-md-9">
-                <div class="col-md-3">
-                    <label style="font-size: 15px">Hour</label>
-                    <div class="form-group">
-                        <select name="time" class="form-control">
+      <div class="col-md-9">
+        <div class="col-md-3">
+          <label style="font-size: 15px">Hour</label>
+          <div class="form-group">
+            <select #startHour name="time" class="form-control">
                         <option value="00">00</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -93,14 +92,14 @@
                         <option value="23">23</option>
                         <option value="24">24</option>
                     </select>
-                    </div>
-                </div>
+          </div>
+        </div>
 
-                <div class="col-md-3">
+        <div class="col-md-3">
 
-                    <div class="form-group">
-                        <label style="font-size: 15px">Minute</label>
-                        <select name="timeTo" class="form-control">
+          <div class="form-group">
+            <label style="font-size: 15px">Minute</label>
+            <select #startMinute name="timeTo" class="form-control">
                         <option value="00">00</option>
                         <option value="5">5</option>
                         <option value="10">10</option>
@@ -115,177 +114,270 @@
                         <option value="55">55</option>
                     </select>
 
-                    </div>
-
-                </div>
-
-                <div class="col-md-2">
-                    <div class="form-group">
-                        <label style="font-size: 15px">Type</label>
-                        <select name="typeTime" class="form-control">
-                        <option value="am">AM</option>
-                        <option value="pm">PM</option>
-                        </select>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-md-9">
-                <div class="col-md-3">
-                    <label> To </label>
-                </div>
-            </div>
-
-            <!-- to -->
-            <div class="col-md-9">
-                <div class="col-md-3">
-
-                    <label style="font-size: 15px">Hour</label>
-                    <div class="form-group">
-                        <select name="time" class="form-control">
-                        <option value="00">00</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23">23</option>
-                        <option value="24">24</option>
-                    </select>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label style="font-size: 15px">Minute</label>
-                        <select name="timeTo" class="form-control">
-                        <option value="00">00</option>
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30">30</option>
-                        <option value="35">35</option>
-                        <option value="40">40</option>
-                        <option value="45">45</option>
-                        <option value="50">50</option>
-                        <option value="55">55</option>
-                    </select>
-                    </div>
-                </div>
-
-                <div class="col-md-2">
-                    <div class="form-group">
-                        <label style="font-size: 15px">Type</label>
-                        <select name="typeTime" class="form-control">
-                        <option value="am">AM</option>
-                        <option value="pm">PM</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <div class="clear"></div>
-
-
-
-
-            <!-- location -->
-            <div class="col-md-9">
-                <div class="form-group">
-                    <label>* Location</label>
-                    <input type="text" name="ssName" value="" maxlength="30" class="form-control required" title="Please fill your location">
-                </div>
-            </div>
-
-            <div class="clear10"></div>
-
-            <!-- file picture -->
-
-            <div class="col-md-6">
-                <label>Picture Event</label>
-                <br>
-                <div class='muted small' style='display:inline-block;'>Max File Size Allowed: <span class='badge'>10.00 MB</span></div>
-                <input type="file" name="ssFile[]" required='required' class='required'>
-                <br>
-            </div>
-
-
-
-
-
-
-            <!-- text box detail -->
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>* Details</label>
-                    <textarea rows="5" name="eventDetail" spellcheck="true" class="form-control required" title="Please fill your message"></textarea>
-                </div>
-            </div>
-
-            <!-- choice button -->
-            <div class="col-md-9">
-                <label>* Type of Event</label>
-                <div class="radio">
-                    <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="option 1" checked=""> Vote</label>
-                </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label style="font-size: 15px">* Expire Date</label>
-                        <input type="date" name="sdate" value="" maxlength="15" class="form-control required" title="Please fill Start Date">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-9">
-                <div class="radio">
-                    <label><input type="radio" name="optionsRadios" id="optionsRadios2" value="option 2"> Join</label>
-                </div>
-            </div>
-
-            <div class="col-md-9">
-                <div class="radio">
-                    <label><input type="radio" name="optionsRadios" id="optionsRadios3" value="option 3"> Announce</label>
-                </div>
-            </div>
-            <br>
-
-
-
-            <!-- button submit -->
-            <div class="col-md-9">
-                <button type="submit" form="nameform" value="Submit" class="button button1">Submit</button>
-            </div>
+          </div>
 
         </div>
-        <!-- well clearfix -->
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <label style="font-size: 15px">Type</label>
+            <select #startType name="typeTime" class="form-control">
+                        <option value="am">AM</option>
+                        <option value="pm">PM</option>
+                        </select>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-9">
+        <div class="col-md-3">
+          <label> To </label>
+        </div>
+      </div>
+
+      <!-- to -->
+      <div class="col-md-9">
+        <div class="col-md-3">
+
+          <label style="font-size: 15px">Hour</label>
+          <div class="form-group">
+            <select #endHour name="time" class="form-control">
+                        <option value="00">00</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                    </select>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label style="font-size: 15px">Minute</label>
+            <select #endMinute name="timeTo" class="form-control">
+                        <option value="00">00</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                        <option value="35">35</option>
+                        <option value="40">40</option>
+                        <option value="45">45</option>
+                        <option value="50">50</option>
+                        <option value="55">55</option>
+                    </select>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <label style="font-size: 15px">Type</label>
+            <select #endType name="typeTime" class="form-control">
+                        <option value="am">AM</option>
+                        <option value="pm">PM</option>
+                        </select>
+          </div>
+        </div>
+      </div>
 
 
 
-     
-    </form>
+
+      <div class="clear"></div>
+
+
+
+
+      <!-- location -->
+      <div class="col-md-9">
+        <div class="form-group">
+          <label>* Location</label>
+          <input #location type="text" name="ssName" value="" maxlength="30" class="form-control required" title="Please fill your location">
+        </div>
+      </div>
+
+      <div class="clear10"></div>
+
+      <!-- file picture -->
+
+      <div class="col-md-6">
+        <label>Picture Event</label>
+        <br>
+        <div class='muted small' style='display:inline-block;'>Max File Size Allowed: <span class='badge'>10.00 MB</span></div>
+        <input type="file" name="ssFile[]" (change)="readURL($event)" required='required' class='required'>
+        <br>
+      </div>
+
+
+
+
+
+
+      <!-- text box detail -->
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>* Details</label>
+          <textarea #details rows="5" name="eventDetail" spellcheck="true" class="form-control required" title="Please fill your message"></textarea>
+        </div>
+      </div>
+
+      <!-- choice button -->
+      <div class="col-md-9">
+        <label>* Type of Event</label>
+        <div class="radio" (change)='check(true,"vote")'>
+          <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="option 1" checked=""> Vote</label>
+        </div>
+      </div>
+
+      <div class="col-md-9">
+        <div class="radio" (change)='check(false,"join")'>
+          <label><input type="radio" name="optionsRadios" id="optionsRadios2" value="option 2"> Join</label>
+        </div>
+      </div>
+
+      <div class="col-md-9">
+        <div class="radio" (change)='check(false,"announce")'>
+          <label><input type="radio" name="optionsRadios" id="optionsRadios3" value="option 3"> Announce</label>
+        </div>
+      </div>
+      <br>
+
+      <!-- add choice -->
+      <div class="col-md-9">
+        <div [hidden]="!hide">
+          <div id="test1">
+            <div class="col-lg-12">
+              <div class="radio">
+
+                <input type="text" id="aaaa" class="form-control">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-10" id="newq" (click)="addp('1')">
+            <a style="font-size: 20px;">add choice</a>
+          </div>
+
+        </div>
+      </div>
+      <!-- end add choice -->
+
+
+
+      <div class="col-md-9">
+        <label>* Expired Date</label>
+      </div>
+
+
+
+      <div class="col-md-9">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label style="font-size: 15px">  Date</label>
+            <input #expDate type="date" name="sdate" value="" maxlength="15" class="form-control required" title="Please fill Start Date">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-9">
+        <div class="col-md-3">
+
+          <label style="font-size: 15px">Hour</label>
+          <div class="form-group">
+            <select #endHour name="time" class="form-control">
+                        <option value="00">00</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                    </select>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label style="font-size: 15px">Minute</label>
+            <select #endMinute name="timeTo" class="form-control">
+                        <option value="00">00</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                        <option value="35">35</option>
+                        <option value="40">40</option>
+                        <option value="45">45</option>
+                        <option value="50">50</option>
+                        <option value="55">55</option>
+                    </select>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="form-group">
+            <label style="font-size: 15px">Type</label>
+            <select #endType name="typeTime" class="form-control">
+                        <option value="am">AM</option>
+                        <option value="pm">PM</option>
+                        </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- button submit -->
+      <div class="col-md-9">
+        <button class="button button1" (click)='add(name.value, location.value, details.value, expDate.value+" :: "+expHour.value+":"+expMinute.value+" : "+expType.value, startDate.value+" - "+endDate.value+" :: "+startHour.value+":"+startMinute.value+":"+startType.value+" - "+endHour.value+":"+endMinute.value+" : "+endType.value)'>Submit</button>
+
+
+      </div>
+
+    </div>
+    <!-- well clearfix -->
+  </form>
 
 </body>
 
