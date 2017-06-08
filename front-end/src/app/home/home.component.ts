@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
 
 
   private objectData: any;
+  private activities
   constructor(private loginService: LoginService, private getactivity: GetAcService) {
     this.getactivity.getActivity().subscribe(data => this.getActivityData(data))
   }
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
 
   private getActivityData = function(value) {
     console.log(JSON.parse(value._body));
+    this.activities = JSON.parse(value._body).activity
     console.log(this.check)
   }
 
