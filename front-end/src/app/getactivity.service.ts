@@ -12,7 +12,7 @@ export class GetAcService {
 
   }
 
-    public getActivity(): Observable<any> {
+  public getActivity(): Observable<any> {
     console.log("getActivity")
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
 
