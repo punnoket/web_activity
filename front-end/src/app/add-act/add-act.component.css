@@ -1,20 +1,41 @@
- @import url('https://shots.jotform.com/elton/genericTheme.css');
- .form-label-left {
-    width: 150px !important;
-  }
+input[type=text] {
+    width: 50%;
+    padding: 12px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
 
-  .form-line {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
+label {
+     font-size: 20px;
+}
 
-  .form-label-right {
-    width: 150px !important;
-  }
-
-  .form-all {
-    width: 550px;
-    color: rgb(255, 255, 255) !important;
-    font-family: 'Muli';
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 16px;
-  }
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.selected {
+  background-color: red;
+  border: medium solid darkred;
+}
