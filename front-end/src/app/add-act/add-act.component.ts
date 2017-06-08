@@ -70,21 +70,3 @@ export class AddActComponent implements OnInit {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
