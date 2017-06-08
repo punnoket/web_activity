@@ -43,13 +43,14 @@
           <img src="{{activity.image}}" alt="Image"> <br><br>
           <p class="w3-opacity" align='left'>{{activity.date}}<br>{{activity.location}}</p>
           <p align='left'>{{activity.description}}</p>
-          <button type="button" class="button">details</button> {{activity.type}}
-          <button type="button" class="button"><span class="glyphicon glyphicon-heart"></span>  Vote</button>
-
+          <button type="button" class="button">details</button>
+          <div *ngIf="activity.type==='vote'">
+            <button type="button" class="button"><span class="glyphicon glyphicon-heart"></span>  Vote</button>
+          </div>
           <button type="button" class="button">score vote</button>
-
-          <button type="button" class="button">join us</button>
-
+          <div *ngIf="activity.type==='join'">
+            <button type="button" class="button">join us</button>
+          </div>
         </div>
 
       </div>
