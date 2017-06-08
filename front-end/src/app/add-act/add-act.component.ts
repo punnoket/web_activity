@@ -12,6 +12,8 @@ export class AddActComponent implements OnInit {
   private arrChoice = new Array();
   private reader = new FileReader();
   private image
+  private hide = true
+  private type = "vote"
   constructor(private add_activity: AddActivityService) { }
 
   ngOnInit() {
@@ -21,19 +23,19 @@ export class AddActComponent implements OnInit {
 
 
 
-  add(name: String, type: String, loaccation: String, description: String, exprie: String, date: String, owner: String) {
+  add(name: String, location: String, description: String, exprie: String, date: String) {
     this.getChoice()
     let activity = {
       'name': name,
-      'type': type,
+      'type': this.type,
       'location': location,
       'description': description,
       'image': this.image,
       'exprie': exprie,
       'date': date,
-      'owner': owner,
       'choice': this.arrChoice
     }
+    console.log(activity)
     this.add_activity.addActivity(activity).subscribe(data => this.getData(data));
   }
   addp(a) {
@@ -63,15 +65,25 @@ export class AddActComponent implements OnInit {
 
   }
 
-  private getData = function (value) {
+  private getData = function(value) {
     console.log(JSON.parse(value._body));
 
   }
 
-  // test on/off
- 
+  check(check, type) {
 
+    if (check) {
+      this.type = type
+      this.hide = check
+      console.log(check)
 
+    } else {
+      this.type = type
+      this.hide = check
+      console.log(check)
+    }
+
+  }
 
 
 }
