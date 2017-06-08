@@ -36,6 +36,6 @@ label {
 }
 
 .selected {
-  background-color: white;
+  background-color: black;
   border: medium solid darkred;
 }

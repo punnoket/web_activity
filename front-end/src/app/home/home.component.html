@@ -27,10 +27,11 @@
     <h3>I'm an participant.</h3>
   </div>
 
+  <!-- new event -->
   <div class="container-fluid bg-2 text-center">
     <h3>♥ ♥ ♥ New Event ♥ ♥ ♥</h3>
 
-  </div>
+  
 
 
   <!--events picture-->
@@ -40,7 +41,7 @@
       <div *ngFor="let activity of activities; let i = index">
         <div class="col-sm-4">
           <h4>{{activity.name}}</h4>
-          <img src="{{activity.image}}" alt="Image"> <br><br>
+          <img  src="{{activity.image}}" alt="Image" width="350" height="280"> <br><br>
           <p class="w3-opacity" align='left'>{{activity.date}}<br>{{activity.location}}</p>
           <p align='left'>{{activity.description}}</p>
           <button type="button" class="button">details</button> {{activity.type}}
@@ -55,8 +56,10 @@
       </div>
     </div>
   </div>
+  
 
-
+ 
+  
 
 
   <!--footer-->
@@ -64,8 +67,8 @@
     <h4>EVENTS TU MADE BY US</h4>
 
   </footer>
-
-
+  
+  </div>
 
 </body>
 
