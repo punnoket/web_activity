@@ -11,6 +11,27 @@ export class AddActComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
