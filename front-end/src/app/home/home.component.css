@@ -2,8 +2,6 @@
 body {
   font-family: Montserrat;
   font-family: Arial, sans-serif;
-  background: url(http://www.shukatsu-note.com/wp-content/uploads/2014/12/computer-564136_1280.jpg) no-repeat;
-  background-size: cover;
   height: 100vh;
   font-family: Montserrat;
 }
@@ -25,7 +23,7 @@ body {
 .container-fluid {
   padding-top: 70px;
   padding-bottom: 70px;
-  background-color: #000000;
+  
   /* Black */
   color: #ffffff;
   font-family: 'Ubuntu', sans-serif;
@@ -55,7 +53,7 @@ body {
 }
 
 .button:hover {
-  background-color: #FF6633;
+  background-color: pink;
   color: white;
 }
 
@@ -150,7 +148,7 @@ body {
 .logo {
   width: 213px;
   height: 36px;
-  background: url('http://i.imgur.com/fd8Lcso.png') no-repeat;
+  /*background: url('http://i.imgur.com/fd8Lcso.png') no-repeat;*/
   margin: 30px auto;
 }
 
@@ -159,7 +157,7 @@ body {
   padding: 20px;
   background: #fff;
   border-radius: 5px;
-  border-top: 5px solid #ff656c;
+  /*border-top: 5px solid #ff656c;*/
   margin: 0 auto;
 }
 
