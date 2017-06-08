@@ -74,7 +74,7 @@ router.post('/add_activity', function(req, res) {
   var choices = []
   for (var i = 0; i < req.body.choice.length; i++) {
     choice = {
-      choice: req.body.choice[0],
+      choice: req.body.choice[i],
       score: 0
     }
     choices.push(choice)
