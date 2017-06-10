@@ -1,4 +1,3 @@
-
 body {
   font-family: Montserrat;
   font-family: Arial, sans-serif;
@@ -27,7 +26,6 @@ p {
 .container-fluid {
   padding-top: 70px;
   padding-bottom: 70px;
-  
   /* Black */
   color: #ffffff;
   font-family: 'Ubuntu', sans-serif;
@@ -97,11 +95,13 @@ p {
   transition: opacity 500ms;
   visibility: hidden;
   opacity: 0;
+  z-index: 1;
 }
 
 .overlay:target {
   visibility: visible;
   opacity: 1;
+  z-index: 1;
 }
 
 .popup {
@@ -231,3 +231,58 @@ p {
   background: #ff7b81;
 }
 
+.vote_overlay {
+  display: none;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.8;
+  opacity: .80;
+  filter: alpha(opacity=80);
+  overflow-y: auto;
+}
+
+.vote_content {
+  display: none;
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  padding: 16px;
+  background-color: white;
+  z-index: 1002;
+  overflow-y: auto;
+}
+
+.join_overlay {
+  display: none;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.8;
+  opacity: .80;
+  filter: alpha(opacity=80);
+  overflow-y: auto;
+}
+
+.join_content {
+  display: none;
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  padding: 16px;
+  background-color: white;
+  z-index: 1002;
+  overflow-y: auto;
+}
