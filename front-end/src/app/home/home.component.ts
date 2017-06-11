@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
 
     if (this.keyJoin === key) {
       this.checkJoin = true
-      console.log("join !!")
+      console.log("join !!!")
       this.getactivity.join(this.idJoin).subscribe(data => this.getJoinData(data))
     } else {
       this.checkJoin = false
