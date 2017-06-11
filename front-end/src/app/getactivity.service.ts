@@ -20,6 +20,17 @@ export class GetAcService {
     return this.http.get('http://localhost:3000/get_activities_all', options).map(data => data);
   }
 
+  public join(id: String): Observable<any> {
+    console.log("join")
+    let data = {
+      "id": id
+    }
+    let body = JSON.stringify(data);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post('http://localhost:3000/join_activity', body, options).map(data => data);
+  }
+
 
 
 }

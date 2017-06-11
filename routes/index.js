@@ -139,29 +139,30 @@ router.post('/vote_choice_activity', function(req, res) {
 });
 
 //join activity
-router.post('/join_activity', function(req, res) {
+router.post('/join_activity', checkAuth,
+  function(req, res) {
 
-  ActivityModel.findById(req.body.id, function(err, doc) {
-    var join = doc.join
-    join++;
-    ActivityModel.update({
-        _id: req.body.id
-      }, {
-        $set: {
-          join: join
+    ActivityModel.findById(req.body.id, function(err, doc) {
+      var join = doc.join
+      join++;
+      ActivityModel.update({
+          _id: req.body.id
+        }, {
+          $set: {
+            join: join
+          }
+        },
+        function(err, result) {
+          if (err) throw err;
+          console.log(doc.name + " join " + doc.join);
+          updateHistoryVote(doc._id, req)
+          res.json({
+            'success': true,
+          });
         }
-      },
-      function(err, result) {
-        if (err) throw err;
-        console.log(doc.name + " join " + doc.join);
-        updateHistoryVote(doc._id, req)
-        res.json({
-          'success': true,
-        });
-      }
-    );
-  })
-});
+      );
+    })
+  });
 
 // get result vote activity
 router.post('/result_vote', function(req, res) {
