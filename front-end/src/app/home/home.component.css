@@ -1,6 +1,6 @@
 body {
   font-family: Montserrat;
-  font-family: Arial, sans-serif;
+  /*font-family: Arial, sans-serif;*/
   height: 100vh;
   font-family: Montserrat;
 }
@@ -17,7 +17,7 @@ p {
 }
 
 .bg-2 {
-  background-color: #474e5d;
+  background-color: #87CEFA;
   /* Dark Blue */
   color: #ffffff;
   font-family: 'Ubuntu', sans-serif;
@@ -45,19 +45,6 @@ p {
   color: #1abc9c !important;
 }
 
-.button {
-  color: black;
-  padding: 8px 8px;
-  display: inline-block;
-  font-size: 14px;
-  margin: 4px 2px;
-  border-radius: 8px;
-}
-
-.button:hover {
-  background-color: pink;
-  color: white;
-}
 
 .box {
   width: 40%;
@@ -70,19 +57,30 @@ p {
   text-align: center;
 }
 
-.button {
-  font-size: 1em;
-  padding: 10px;
-  color: #fff;
-  border: 2px solid #06D85F;
-  border-radius: 20px/50px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
+
+  /* button */
+  
+button {
+    background: #87CEFA;
+    color: white;
+    font-family: Montserrat;
+    font-size: 15px;
+    height: 50px;
+    width: 100px;
+    /*line-height: 20px;*/
+    margin: 15px 15px;
+    text-align: center;
+    border: 0;
+    /*transition: all 0.3s ease 0s;*/
+    opacity: 1;
+    box-shadow: inset 0 0 0 2px white;
 }
 
-.button:hover {
-  background: #06D85F;
+ 
+ button:hover {
+   background: white;
+   color: #87CEFA;
+  /*/opacity: 0.75;*/
 }
 
 .overlay {
@@ -255,6 +253,7 @@ p {
   height: 50%;
   padding: 16px;
   background-color: white;
+  color: black;
   z-index: 1002;
   overflow-y: auto;
 }
@@ -286,3 +285,17 @@ p {
   z-index: 1002;
   overflow-y: auto;
 }
+
+li {
+  display: block;
+  position: relative;
+  font-weight: 300;
+  font-size: 1.35em;
+  padding: 25px 25px 25px 80px;
+  margin: 10px auto;
+  height: 30px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+}
+
