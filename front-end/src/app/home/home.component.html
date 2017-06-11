@@ -41,16 +41,26 @@
     <!--events picture-->
     <div class="container-fluid bg-3 text-center">
 
+
       <div class="row">
+
         <div *ngFor="let activity of activities; let i = index">
           <div class="col-sm-4">
+
 
             <div *ngIf="activity.type==='vote'">
               <div id="vote_content" class="vote_content">
 
                 <a href="javascript:void(0)" onclick="document.getElementById('vote_content').style.display='none';document.getElementById('vote_fade').style.display='none'">Close</a>
                 <div *ngFor="let c of choices; let i = index">
-                  <p>{{c.choice}}</p>
+
+
+                  <li>
+                    <input type="radio" id="s-option" name="selector">
+                    <label>{{c.choice}}</label>
+
+                  </li>
+                  <!--<p>{{c.choice}}</p> -->
                 </div>
               </div>
               <div id="vote_fade" class="vote_overlay"></div>
@@ -83,8 +93,14 @@
               <button type="button" class="button"><a (click)='join(activity._id)' href="javascript:void(0)" onclick="document.getElementById('join_content').style.display='block';document.getElementById('join_fade').style.display='block'">join us</a></button>
             </div>
           </div>
+
+
+
+
         </div>
+        <!-- let ac loop -->
       </div>
+      <!-- class row -->
     </div>
 
 
