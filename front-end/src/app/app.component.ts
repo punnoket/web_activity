@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {LoginService} from './login.service';
 import { Subscription } from 'rxjs/Subscription';
+import { GetAcService } from './getactivity.service';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,13 @@ export class AppComponent {
   private objectData: any
   private check = false
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private getactivity: GetAcService) {
+    this.getactivity.checkAuth().subscribe(data => this.getAuthData(data))
 
+  }
+  private getAuthData = function(value) {
+
+    this.check = JSON.parse(value._body).success
 
   }
 
@@ -25,17 +31,8 @@ export class AppComponent {
   private getUserData = function(value) {
     console.log(JSON.parse(value._body));
     let data = JSON.parse(value._body)
-    if (data.success == false) {
+    window.location.href = '/'
 
-      this.check = false;
-      return false
-    } else {
-
-      this.check = true;
-      window.location.href = '/home'
-      return true
-
-    }
   }
 
   logout() {
@@ -44,12 +41,7 @@ export class AppComponent {
   }
 
   private getData = function(value) {
-    console.log(JSON.parse(value._body));
-    let data = JSON.parse(value._body)
-    if (data.success) {
-      window.location.href = '/'
-    }
-
+    window.location.href = '/'
 
   }
 }

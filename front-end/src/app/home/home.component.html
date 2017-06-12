@@ -27,17 +27,13 @@
     <h3>I'm an participant.</h3>
   </div>
 
+
   <!-- new event -->
   <div class="container-fluid bg-2 text-center">
     <h3>♥ ♥ ♥ New Event ♥ ♥ ♥</h3>
 
-    <p>This is the main content. To display a lightbox click <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">here</a>
-    </p>
-    <div id="light" class="white_content">This is the lightbox content. <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
-    </div>
-    <div id="fade" class="black_overlay"></div>
 
-
+    <button (click)="test()">click</button>
     <!--events picture-->
     <div class="container-fluid bg-3 text-center">
 
@@ -56,12 +52,15 @@
 
 
                   <li>
-                    <input type="radio" id="s-option" name="selector">
+                    <input #choice type="radio" id="s-option" name="selector" (change)="onSelectionChange(i)">
                     <label>{{c.choice}}</label>
 
                   </li>
                   <!--<p>{{c.choice}}</p> -->
                 </div>
+                <p>Please enter your key</p>
+                <input #key type="text">
+                <button onclick="document.getElementById('vote_content').style.display='none';document.getElementById('vote_fade').style.display='none'" type="button" class="button" (click)='checkMatchKeyVote(key.value)'>Vote</button>
               </div>
               <div id="vote_fade" class="vote_overlay"></div>
             </div>
@@ -71,10 +70,8 @@
               <a href="javascript:void(0)" onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'">Close</a>
               <p>Please enter your key</p>
               <input #key type="text">
-              <button type="button" class="button" (click)='checkMatchKey(key.value)'>join us</button>
-              <div *ngIf="checkJoin===false">
-                <p>Wrong your key !!</p>
-              </div>
+              <button onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'" type="button" class="button" (click)='checkMatchKey(key.value)'>join us</button>
+
             </div>
             <div id="join_fade" class="join_overlay"></div>
 
