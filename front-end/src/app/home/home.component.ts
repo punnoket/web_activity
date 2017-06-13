@@ -24,10 +24,11 @@ export class HomeComponent implements OnInit {
   private idVote
   private indexOfChoice
   private checkAuth
+  private slideIndex = 1;
   constructor(private loginService: LoginService, private getactivity: GetAcService) {
     this.getactivity.getActivity().subscribe(data => this.getActivityData(data))
     this.getactivity.checkAuth().subscribe(data => this.getAuthData(data))
-    this.showDivs(this.slideIndex)
+   // this.showDivs(this.slideIndex)
 
 
 
@@ -112,26 +113,27 @@ export class HomeComponent implements OnInit {
   }
 
 
-private slideIndex = 1;
 
 
-public plusDivs(n: number) {
-  this.showDivs(this.slideIndex += n);
-}
 
-private showDivs(n: number) {
+  public plusDivs(n: number) {
+    this.showDivs(this.slideIndex += n);
+  }
+
+
+ showDivs(n: number) {
   let i;
-  let x: NodeListOf<Element> = document.getElementsByClassName("mySlides");
-
-
-  
-  // if (n > x.length) { this.slideIndex = 1 }
-  // if (n < 1) { this.slideIndex = x.length }
-  // for (i = 0; i < x.length; i++) {
-  //   x[i].style.display = "none";
-  // }
-  // x[this.slideIndex - 1].style.display = "block";
+  let x = document.getElementsByName("mySlides");
+  if (n > x.length) { this.slideIndex = 1 }
+  if (n < 1) { this.slideIndex = x.length }
+ 
+  for (let i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+    document.write(x[i].style.display);
+  }
+  x[this.slideIndex - 1].style.display = "inherit";
 }
+
 
 
 
