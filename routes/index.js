@@ -8,12 +8,20 @@ var passport = require('passport');
 var Strategy = require('passport-facebook').Strategy;
 var mongoose = require('mongoose');
 
-function checkAuth(req, res, next) {
 
-  if (req.session.inSession && req.session.user) {
+var checkauth = false
+var idUser
+
+function checkAuth(req, res, next) {
+  console.log(checkauth);
+  if (checkauth) {
     next();
   } else {
-    res.send('You are not authorized to view this page. Please <a href="/login">logon</a>');
+    res.json({
+      'success': req.session.inSession,
+      'text': 'please login'
+
+    });
   }
 }
 
@@ -27,15 +35,15 @@ function makeKey() {
 
 
 function updateHistoryVote(idActivity, req) {
-  UserModel.findById(req.session.userid, function(err, doc) {
+  UserModel.findById(idUser, function(err, doc) {
     //var id = mongoose.Types.ObjectId('593109439f23d41f68cd167b')
-    console.log(doc.history_activity);
+
     var history_activity = doc.history_activity
     history_activity.push(idActivity)
-    console.log(history_activity);
+
 
     UserModel.update({
-        _id: req.session.userid
+        _id: idUser
       }, {
         $set: {
           history_activity: history_activity
@@ -43,8 +51,9 @@ function updateHistoryVote(idActivity, req) {
       },
       function(err, result) {
         if (err) throw err;
-
+        console.log(result);
       }
+
     );
   });
 
@@ -108,8 +117,8 @@ router.post('/add_activity', function(req, res) {
 });
 
 //vote choice activity
-router.post('/vote_choice_activity', function(req, res) {
-
+router.post('/vote_choice_activity', checkAuth, function(req, res) {
+  console.log(req.body.choice + " " + req.body.id);
   ActivityModel.findById(req.body.id, function(err, doc) {
     var choices = doc.choice
     var score = choices[req.body.choice].score
@@ -141,6 +150,7 @@ router.post('/vote_choice_activity', function(req, res) {
 //join activity
 router.post('/join_activity', checkAuth,
   function(req, res) {
+    console.log(req.session.user);
 
     ActivityModel.findById(req.body.id, function(err, doc) {
       var join = doc.join
@@ -285,16 +295,19 @@ router.post('/login', function(req, res) {
       req.session.user = req.body.username;
       req.session.userid = docs[0]._id;
       req.session.inSession = true;
+      checkauth = true
+      idUser = docs[0]._id;
+
 
       res.json({
-        'success': true,
+        'success': req.session.inSession,
         'text': 'Login success',
         'user': docs,
       });
     } else {
 
       res.json({
-        'success': false,
+        'success': req.session.inSession,
         'text': 'incorrect username or password',
       });
     }
@@ -305,6 +318,14 @@ router.post('/login', function(req, res) {
 
 router.get('/content', checkAuth, function(req, res) {
   res.send("Congrat! You are now in authorized session. You are already logged in.");
+});
+
+router.get('/check_auth', function(req, res) {
+  console.log(req.session.user);
+  res.json({
+    'success': checkauth
+
+  });
 });
 
 router.get('/get_activities_all', function(req, res) {
@@ -320,6 +341,7 @@ router.get('/get_activities_all', function(req, res) {
 // Logout endpoint
 router.get('/logout', function(req, res) {
   req.session.destroy();
+  checkauth = false
   res.send("logout success!");
 });
 
