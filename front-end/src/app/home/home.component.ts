@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   private idVote
   private indexOfChoice
   private checkAuth
+
   constructor(private loginService: LoginService, private getactivity: GetAcService) {
     this.getactivity.getActivity().subscribe(data => this.getActivityData(data))
     this.getactivity.checkAuth().subscribe(data => this.getAuthData(data))
@@ -42,14 +43,14 @@ export class HomeComponent implements OnInit {
   }
 
 
-  private getActivityData = function (value) {
+  private getActivityData = function(value) {
     console.log(JSON.parse(value._body));
 
     this.activities = JSON.parse(value._body).activity
 
   }
 
-  private getAuthData = function (value) {
+  private getAuthData = function(value) {
 
     this.checkAuth = JSON.parse(value._body).success
     console.log(this.checkAuth)
@@ -102,7 +103,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  private getData = function (value) {
+  private getData = function(value) {
     console.log(JSON.parse(value._body));
 
   }
@@ -112,29 +113,37 @@ export class HomeComponent implements OnInit {
   }
 
 
-private slideIndex = 1;
+  private slideIndex = 1;
 
 
-public plusDivs(n: number) {
-  this.showDivs(this.slideIndex += n);
+  public plusDivs(n: number) {
+    this.showDivs(this.slideIndex += n);
+  }
+
+  private showDivs(n: number) {
+    let i;
+    let x: NodeListOf<Element> = document.getElementsByClassName("mySlides");
+
+
+
+    // if (n > x.length) { this.slideIndex = 1 }
+    // if (n < 1) { this.slideIndex = x.length }
+    // for (i = 0; i < x.length; i++) {
+    //   x[i].style.display = "none";
+    // }
+    // x[this.slideIndex - 1].style.display = "block";
+  }
+
+  public getType(type: String) {
+    console.log(type)
+    for (let i of this.activities) {
+
+
+    }
+
+  }
+
+
+
+
 }
-
-private showDivs(n: number) {
-  let i;
-  let x: NodeListOf<Element> = document.getElementsByClassName("mySlides");
-
-
-  
-  // if (n > x.length) { this.slideIndex = 1 }
-  // if (n < 1) { this.slideIndex = x.length }
-  // for (i = 0; i < x.length; i++) {
-  //   x[i].style.display = "none";
-  // }
-  // x[this.slideIndex - 1].style.display = "block";
-}
-
-
-
-
-}
-

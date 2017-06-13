@@ -12,6 +12,7 @@ export class AppComponent {
   title = 'app works!';
   private objectData: any
   private check = false
+  private username = ""
 
   constructor(private loginService: LoginService, private getactivity: GetAcService) {
     this.getactivity.checkAuth().subscribe(data => this.getAuthData(data))
@@ -20,6 +21,8 @@ export class AppComponent {
   private getAuthData = function(value) {
 
     this.check = JSON.parse(value._body).success
+    this.username = JSON.parse(value._body).username
+    console.log(this.username)
 
   }
 
@@ -43,5 +46,16 @@ export class AppComponent {
   private getData = function(value) {
     window.location.href = '/'
 
+  }
+  register(username: String, password: String, name: String, fac: String, id: String) {
+    let user = {
+      'name': name,
+      'student_id': id,
+      'password': password,
+      'username': username,
+      'faculty': fac
+    }
+    console.log(user)
+    this.loginService.register(user).subscribe(data => this.getData(data));
   }
 }

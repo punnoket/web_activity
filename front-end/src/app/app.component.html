@@ -23,7 +23,7 @@
     <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
     <div class="logo"></div>
     <div class="login-block">
-      <a class="close" href="#">&times;</a>
+
       <h1>Login</h1>
       <input #username type="text" value="" placeholder="Username" id="username" />
       <input #password type="password" value="" placeholder="Password" id="password" />
@@ -33,6 +33,24 @@
     </div>
   </div>
   <div id="fade" class="black_overlay"></div>
+
+  <div id="regis_light" class="regis_white_content">
+    <a href="javascript:void(0)" onclick="document.getElementById('regis_light').style.display='none';document.getElementById('regis_fade').style.display='none'">Close</a>
+    <div class="logo"></div>
+    <div class="login-block">
+
+      <h1>Register</h1>
+      <input #username type="text" value="" placeholder="Username" id="username" />
+      <input #password type="password" value="" placeholder="Password" id="password" />
+      <input #name type="text" value="" placeholder="Name" id="username" />
+      <input #fac type="text" value="" placeholder="Faculty" id="username" />
+      <input #id type="text" value="" placeholder="StudentID" id="username" />
+
+      <button href="javascript:void(0)" onclick="document.getElementById('regis_light').style.display='none';document.getElementById('regis_fade').style.display='none'" (click)="register(username.value, password.value,name.value,fac.value,id.value)">Register</button>
+
+    </div>
+  </div>
+  <div id="regis_fade" class="regis_black_overlay"></div>
 
   <nav class="navbar">
     <div class="container">
@@ -45,9 +63,11 @@
           <li><a routerLink="/add-act" routerLinkActive="active">ADD</a></li>
           <div *ngIf="!check">
             <li><a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">LOGIN</a></li>
+            <li><a href="javascript:void(0)" onclick="document.getElementById('regis_light').style.display='block';document.getElementById('regis_fade').style.display='block'">REGISTER</a></li>
           </div>
           <div *ngIf="check">
-            <li><a (click)="logout()">logout</a></li>
+
+            <li><a (click)="logout()">LOGOUT </a></li>
           </div>
 
         </ul>

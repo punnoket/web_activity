@@ -24,6 +24,16 @@ export class LoginService {
     return this.http.post('http://localhost:3000/login', body, options).map(data => data);
   }
 
+  public register(data: Object): Observable<any> {
+    console.log("regis")
+    console.log(data)
+
+    let body = JSON.stringify(data);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post('http://localhost:3000/register', body, options).map(data => data);
+  }
+
   public loginFacebook(): Observable<any> {
     console.log("login facebook")
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
