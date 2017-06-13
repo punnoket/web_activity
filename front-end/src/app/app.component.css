@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   /*background: url(http://www.shukatsu-note.com/wp-content/uploads/2014/12/computer-564136_1280.jpg) no-repeat;  */
-  background-size: cover;
+  background-color: #1d3156;
   height: 100vh;
 }
 
@@ -30,7 +30,7 @@ h1 {
 .button {
   font-size: 1em;
   padding: 10px;
-  color: #fff;
+  color: #ffee5a;
   border: 2px solid #06D85F;
   border-radius: 20px/50px;
   text-decoration: none;
