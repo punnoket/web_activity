@@ -9,7 +9,7 @@ import {RequestOptions, Request, RequestMethod} from '@angular/http';
 export class GetAcService {
 
   constructor(private http: Http) {
-
+    console.log("sds")
   }
 
   public getActivity(): Observable<any> {
