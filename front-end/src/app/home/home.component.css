@@ -28,6 +28,21 @@ p {
   font-family: 'Ubuntu', sans-serif;
 }
 
+.event {
+  background-color: #F3A530;
+  font-size: 15px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 6%;
+  /*margin-top: 0;*/
+}
+
+.event-title {
+  font-size: 15px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 5px;
+  padding: 7px;
+}
+
 .container-fluid {
   background-color: #1d3156;
   padding-top: 70px;
@@ -65,6 +80,29 @@ p {
 
 /* button */
 
+.button-event {
+  background: #F8CF32;
+  color: #1d3156;
+  font-family: Montserrat;
+  font-size: 7px;
+  height: 35px;
+  width: 86px;
+  padding: 0px;
+  /*margin: 3px 0 10px 0;*/
+  ;
+  /*line-height: 20px;*/
+  text-align: center;
+  border: 1;
+  /*transition: all 0.3s ease 0s;*/
+  opacity: 1;
+}
+
+.button-event:hover {
+  background: #ffc410;
+  color: black;
+  /*/opacity: 0.75;*/
+}
+
 button {
   background: #F8CF32;
   color: #1d3156;
@@ -77,7 +115,8 @@ button {
   text-align: center;
   border: 1;
   /*transition: all 0.3s ease 0s;*/
-  opacity: 1;
+  /*opacity: 1;*/
+  border: 1px solid #A1a1a1;
 }
 
 button:hover {
@@ -259,6 +298,14 @@ button:hover {
   color: black;
   z-index: 1002;
   overflow-y: auto;
+}
+
+#right {
+  text-align: left;
+}
+
+#left {
+  text-align: right;
 }
 
 .join_overlay {

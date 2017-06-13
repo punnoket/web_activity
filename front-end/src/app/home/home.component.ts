@@ -24,7 +24,9 @@ export class HomeComponent implements OnInit {
   private idVote
   private indexOfChoice
   private checkAuth
+ 
   private slideIndex = 1;
+ 
   constructor(private loginService: LoginService, private getactivity: GetAcService) {
     this.getactivity.getActivity().subscribe(data => this.getActivityData(data))
     this.getactivity.checkAuth().subscribe(data => this.getAuthData(data))
@@ -43,14 +45,14 @@ export class HomeComponent implements OnInit {
   }
 
 
-  private getActivityData = function (value) {
+  private getActivityData = function(value) {
     console.log(JSON.parse(value._body));
 
     this.activities = JSON.parse(value._body).activity
 
   }
 
-  private getAuthData = function (value) {
+  private getAuthData = function(value) {
 
     this.checkAuth = JSON.parse(value._body).success
     console.log(this.checkAuth)
@@ -103,7 +105,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  private getData = function (value) {
+  private getData = function(value) {
     console.log(JSON.parse(value._body));
 
   }
@@ -113,6 +115,7 @@ export class HomeComponent implements OnInit {
   }
 
 
+ 
 
 
 
@@ -133,10 +136,14 @@ export class HomeComponent implements OnInit {
   }
   x[this.slideIndex - 1].style.display = "inherit";
 }
+ 
 
+    // if (n > x.length) { this.slideIndex = 1 }
+    // if (n < 1) { this.slideIndex = x.length }
+    // for (i = 0; i < x.length; i++) {
+    //   x[i].style.display = "none";
+    // }
+    // x[this.slideIndex - 1].style.display = "block";
+  }
 
-
-
-
-}
 
