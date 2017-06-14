@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
     this.getactivity.checkAuth().subscribe(data => this.getAuthData(data))
 
 
-
   }
 
 
@@ -120,8 +119,8 @@ export class HomeComponent implements OnInit {
 
 
 
-
   public plusDivs(n: number) {
+
     this.showDivs(this.slideIndex += n);
   }
 
@@ -129,6 +128,7 @@ export class HomeComponent implements OnInit {
   public showDivs(n: number) {
     let i;
     let x = <HTMLElement[]><any>document.getElementsByClassName("mySlides");
+
 
     if (n > x.length) { this.slideIndex = 1 }
     if (n < 1) { this.slideIndex = x.length }

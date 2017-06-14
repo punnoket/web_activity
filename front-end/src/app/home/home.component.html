@@ -68,31 +68,32 @@
 
             <div *ngIf="activity.type==='vote'">
               <div id="vote_content" class="vote_content">
-
-                <a href="javascript:void(0)" onclick="document.getElementById('vote_content').style.display='none';document.getElementById('vote_fade').style.display='none'">Close</a>
-                <div *ngFor="let c of choices; let i = index">
-
-
-                  <li>
-                    <input #choice type="radio" id="s-option" name="selector" (change)="onSelectionChange(i)">
-                    <label>{{c.choice}}</label>
-
-                  </li>
-
+                <a href="javascript:void(0)" onclick="document.getElementById('vote_content').style.display='none';document.getElementById('vote_fade').style.display='none'" class="close" id="cc">&times;</a>
+                <div id="bord">
+                  <div *ngFor="let c of choices; let i = index" id="li">
+                    <!-- <li id="li"> -->
+                    <h6><input #choice type="radio" id="s-option" name="selector" (change)="onSelectionChange(i)">
+                    {{c.choice}}</h6>
+                    <!-- </li> -->
+                  </div>
+                  <p id="pp">Please enter your key</p>
+                  <input #key type="text">
+                  <button id="but" onclick="document.getElementById('vote_content').style.display='none';document.getElementById('vote_fade').style.display='none'" type="button" class="button" (click)='checkMatchKeyVote(key.value)'>Vote</button>
                 </div>
-                <p>Please enter your key</p>
-                <input #key type="text">
-                <button onclick="document.getElementById('vote_content').style.display='none';document.getElementById('vote_fade').style.display='none'" type="button" class="button" (click)='checkMatchKeyVote(key.value)'>Vote</button>
+
+
               </div>
               <div id="vote_fade" class="vote_overlay"></div>
             </div>
 
 
             <div id="join_content" class="join_content">
-              <a href="javascript:void(0)" onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'">Close</a>
-              <p>Please enter your key</p>
-              <input #key type="text">
-              <button onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'" type="button" class="button" (click)='checkMatchKey(key.value)'>join us</button>
+              <div id="bord">
+                <a href="javascript:void(0)" onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'" class="close" id="cc">&times;</a>
+                <p id="pp">Please enter your key</p>
+                <input #key type="text">
+                <button onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'" type="button" class="button" id="but" (click)='checkMatchKey(key.value)'>join us</button>
+              </div>
 
             </div>
             <div id="join_fade" class="join_overlay"></div>
