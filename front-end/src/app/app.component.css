@@ -2,7 +2,8 @@ body {
   font-family: Arial, sans-serif;
   /*background: url(http://www.shukatsu-note.com/wp-content/uploads/2014/12/computer-564136_1280.jpg) no-repeat;  */
   /*background-color: #1d3156;*/
-  height: 100vh;
+  height: 100%;
+   background-color: #1d3156;
 }
 
 h1 {

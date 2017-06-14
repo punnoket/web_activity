@@ -16,6 +16,9 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
+  <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 
 
 
@@ -34,11 +37,12 @@
 
   <!-- new event -->
   <div class="container-fluid bg-2 text-center">
-    <h3><span  class="glyphicon glyphicon-heart"></span><span  class="glyphicon glyphicon-heart"></span><span  class="glyphicon glyphicon-heart"></span> New Event <span  class="glyphicon glyphicon-heart"></span><span  class="glyphicon glyphicon-heart"></span><span  class="glyphicon glyphicon-heart"></span></h3>
+    <h3> New Event </h3>
     <br>
     <img class="mySlides" src="themouses.jpg" style="width:100%">
     <img class="mySlides" src="bodyslam.jpg" style="width:100%">
 
+    
     <button class="w3-button w3-black w3-display-left" (click)="plusDivs(-1)">&#10094;</button>
     <button class="w3-button w3-black w3-display-right" (click)="plusDivs(1)">&#10095;</button>
 
@@ -54,7 +58,7 @@
         <input id="search" type="text" placeholder="Search...." style="position:relative; right:-150px" />
         <input type="submit" value="Search" id="submitButton" style="position:relative; right:-150px" />
 
-
+ 
 
       </div>
 
@@ -82,7 +86,8 @@
                 </div>
                 <p>Please enter your key</p>
                 <input #key type="text">
-                <button onclick="document.getElementById('vote_content').style.display='none';document.getElementById('vote_fade').style.display='none'" type="button" class="button" (click)='checkMatchKeyVote(key.value)'>Vote</button>
+                <button onclick="document.getElementById('vote_content').style.display='none';document.getElementById('vote_fade').style.display='none'"
+                  type="button" class="button" (click)='checkMatchKeyVote(key.value)'>Vote</button>
               </div>
               <div id="vote_fade" class="vote_overlay"></div>
             </div>
@@ -92,7 +97,8 @@
               <a href="javascript:void(0)" onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'">Close</a>
               <p>Please enter your key</p>
               <input #key type="text">
-              <button onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'" type="button" class="button" (click)='checkMatchKey(key.value)'>join us</button>
+              <button onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'"
+                type="button" class="button" (click)='checkMatchKey(key.value)'>join us</button>
 
             </div>
             <div id="join_fade" class="join_overlay"></div>
