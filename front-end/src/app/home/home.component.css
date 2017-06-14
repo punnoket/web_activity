@@ -11,7 +11,7 @@ body {
 
 .event {
   background-color: #F3A530;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Ubuntu', sans-serif;
   font-family: 'Kanit', sans-serif;
   padding: 7px;
@@ -34,7 +34,16 @@ p {
 }
 
 .container-fluid {
-  background-color: #1d3156;
+  background: linear-gradient(#1d3156, #8506A9);
+  padding-top: 70px;
+  padding-bottom: 70px;
+  /* Black */
+  /*color: #1d3156;*/
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.containe-fluid {
+ 
   padding-top: 70px;
   padding-bottom: 70px;
   /* Black */
