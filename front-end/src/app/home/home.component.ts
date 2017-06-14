@@ -149,6 +149,8 @@ export class HomeComponent implements OnInit {
   }
 
   public joinResult(id: String) {
+    console.log(id);
+    
     this.getactivity.joinResult(id).subscribe(data => this.getJoinResult(data))
   }
   public voteResult(id: String) {

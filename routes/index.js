@@ -19,7 +19,7 @@ function checkAuth(req, res, next) {
     next();
   } else {
     res.json({
-      'success': req.session.inSession,
+      'success': false,
       'text': 'please login'
 
     });
@@ -90,6 +90,30 @@ router.post('/add_activity', function(req, res) {
     choices.push(choice)
   }
 
+  ///  console.log(req.body.date);
+  var str = req.body.date.split(" ")
+
+  var start = str[0].split("-");
+  var end = str[2].split("-");
+
+
+  var dateStart = new Date(parseInt(start[0]), parseInt(start[1]), parseInt(start[2]))
+  var dateEnd = new Date(parseInt(end[0]), parseInt(end[1]), parseInt(end[2]))
+  var arr = dateStart.toString().split(" ")
+  var arr2 = dateEnd.toString().split(" ")
+
+  var date = arr[0] + " " + arr[2] + " " + arr[1] + " " + arr[3] + " to " + arr2[0] + " " + arr2[1] + " " + arr2[2] + " " + arr2[3]
+  var time = str[4] + " " + str[5] + " to " + str[7] + " " + str[8]
+
+  var dateTime = date + "\n" + time
+
+  console.log(exp);
+  var exp = req.body.exprie.split(" ")
+  console.log(exp);
+  var expStart = str[0].split("-");
+  var expdateStart = new Date(parseInt(expStart[0]), parseInt(expStart[1]), parseInt(expStart[2]))
+  var arr3 = expdateStart.toString().split(" ")
+  var expdate = arr3[0] + " " + arr3[2] + " " + arr3[1] + " " + arr3[3] + " " + exp[2] + " " + exp[4]
 
   var activity = {
     'name': req.body.name,
@@ -99,13 +123,14 @@ router.post('/add_activity', function(req, res) {
     'key': makeKey(),
     'description': req.body.description,
     'image': req.body.image,
-    'exprie': req.body.exprie,
-    'date': req.body.date,
+    'exprie': expdate,
+    'date': date,
+    'time': time,
     'join': 0,
     'owner': req.session.userid,
     'choice': choices
   }
-  console.log(activity);
+  //console.log(activity);
   ActivityModel.create(activity, function(err, doc) {
     if (err) {
 
@@ -196,6 +221,18 @@ router.post('/result_vote', function(req, res) {
 });
 
 
+router.post('/result_join', function(req, res) {
+
+  ActivityModel.findById(req.body.id, function(err, doc) {
+
+    res.json({
+      'success': true,
+      'result': doc.join
+    });
+  })
+});
+
+
 //register
 router.post('/register', function(req, res) {
   var password;
@@ -280,6 +317,7 @@ router.get('/auth/facebook/callback',
 //login user
 
 router.post('/login', function(req, res) {
+  console.log("!!!!!!!!!!!!!!!!!!!!!!!");
   UserModel.find({
     username: req.body.username
   }, function(err, docs) {
@@ -322,7 +360,8 @@ router.get('/content', checkAuth, function(req, res) {
 });
 
 router.get('/check_auth', function(req, res) {
-
+  var birthday = new Date(1988, 3, 15);
+  console.log(birthday.toString());
   console.log(req.session.user);
   res.json({
     'success': checkauth,
