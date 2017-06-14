@@ -28,13 +28,15 @@ export class HomeComponent implements OnInit {
   private slideIndex = 1;
  
   constructor(private loginService: LoginService, private getactivity: GetAcService) {
+    
     this.getactivity.getActivity().subscribe(data => this.getActivityData(data))
     this.getactivity.checkAuth().subscribe(data => this.getAuthData(data))
-   // this.showDivs(this.slideIndex)
-
+    
 
 
   }
+
+  
 
 
   ngOnInit() {
@@ -124,17 +126,17 @@ export class HomeComponent implements OnInit {
   }
 
 
- showDivs(n: number) {
+ public showDivs(n: number) {
   let i;
-  let x = document.getElementsByName("mySlides");
+  let x = <HTMLElement[]><any>document.getElementsByClassName("mySlides");
   if (n > x.length) { this.slideIndex = 1 }
   if (n < 1) { this.slideIndex = x.length }
  
   for (let i = 0; i < x.length; i++) {
     x[i].style.display = "none";
-    document.write(x[i].style.display);
+    
   }
-  x[this.slideIndex - 1].style.display = "inherit";
+  x[this.slideIndex - 1].style.display = "block";
 }
  
 
