@@ -1,8 +1,7 @@
 body {
   font-family: Montserrat;
-  height: 100vh;
-  font-family: Montserrat;
-  background-color: #1d3156;
+  font-family: 'Kanit', sans-serif;
+ 
 }
 
 #bord {
@@ -12,8 +11,9 @@ body {
 
 .event {
   background-color: #F3A530;
-  font-size: 15px;
+  font-size: 18px;
   font-family: 'Ubuntu', sans-serif;
+  font-family: 'Kanit', sans-serif;
   padding: 7px;
   margin-top: 4%;
 }
@@ -583,3 +583,5 @@ footer a:hover {
 textarea {
   resize: none;
 }
+
+
