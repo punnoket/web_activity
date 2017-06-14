@@ -33,7 +33,16 @@ p {
 }
 
 .container-fluid {
-  background-color: #1d3156;
+  background: linear-gradient(#1d3156, #8506A9);
+  padding-top: 70px;
+  padding-bottom: 70px;
+  /* Black */
+  /*color: #1d3156;*/
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.containe-fluid {
+ 
   padding-top: 70px;
   padding-bottom: 70px;
   /* Black */
