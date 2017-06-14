@@ -7,9 +7,18 @@ import {RequestOptions, Request, RequestMethod} from '@angular/http';
 
 @Injectable()
 export class LoginService {
+  private user
+
 
   constructor(private http: Http) {
 
+  }
+
+  public setUser(user: Object) {
+    this.user = user
+  }
+  public getUser() {
+    return this.user
   }
 
   public login(username: String, password: String): Observable<any> {

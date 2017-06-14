@@ -304,10 +304,12 @@ button:hover {
 
 #right {
   text-align: left;
+  height: 70px;
 }
 
 #left {
   text-align: right;
+  height: 70px;
 }
 
 .join_overlay {
@@ -402,7 +404,7 @@ h3, h4 {
   margin: 10px 0 30px 0;
   letter-spacing: 10px;
   font-size: 30px;
-  color: red;
+  color: #f8cf32;
 }
 
 h5 {

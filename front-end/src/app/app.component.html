@@ -21,10 +21,10 @@
     <div class="login-block">
 
       <h1>Login</h1>
-      <input #username type="text" value="" placeholder="Username" id="username" />
-      <input #password type="password" value="" placeholder="Password" id="password" />
+      <input type="text" value="" placeholder="Username" id="username" [(ngModel)]="u" />
+      <input #password type="password" value="" placeholder="Password" id="password" [(ngModel)]="p" />
 
-      <button id="color" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" (click)="login(username.value, password.value)">Login</button>
+      <button id="color" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" (click)="login(u, p)">Login</button>
       <!-- <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"> <button (click)="loginFacebook()" style="background-color: #3b5998;color: white; border:2px solid #3b5998">Login with facebook</button></div> -->
     </div>
   </div>
@@ -42,12 +42,9 @@
       <input #fac type="text" value="" placeholder="Faculty" id="username" />
       <input #id type="text" value="" placeholder="StudentID" id="username" />
 
-<<<<<<< HEAD
-      <button href="javascript:void(0)" onclick="document.getElementById('regis_light').style.display='none';document.getElementById('regis_fade').style.display='none'"
-        (click)="register(username.value, password.value,name.value,fac.value,id.value)">Register</button>
-=======
+
       <button id='color' href="javascript:void(0)" onclick="document.getElementById('regis_light').style.display='none';document.getElementById('regis_fade').style.display='none'" (click)="register(username.value, password.value,name.value,fac.value,id.value)">Register</button>
->>>>>>> 8848236f25278307de2f7920cbd80a64097c5b9d
+
 
     </div>
   </div>
@@ -57,7 +54,6 @@
     <div class="container">
       <div class="navbar-header">
 
-<<<<<<< HEAD
         <!--<a class="navbar-brand" routerLink="home" routerLinkActive="active">Event TU</a>-->
         <div id="logo" class="col-sm-2">
           <a href="http://localhost:4200/home">
@@ -65,9 +61,6 @@
                 <img src="box.png" alt="homelogo">
           </a>
         </div>
-=======
-        <a class="navbar-brand" routerLink="home" routerLinkActive="active">Event TU</a>
->>>>>>> 8848236f25278307de2f7920cbd80a64097c5b9d
 
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">

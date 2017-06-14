@@ -22,7 +22,7 @@ export class AppComponent {
 
     this.check = JSON.parse(value._body).success
     this.username = JSON.parse(value._body).username
-    console.log(this.username)
+    console.log(this.check)
 
   }
 
@@ -34,6 +34,8 @@ export class AppComponent {
   private getUserData = function(value) {
     console.log(JSON.parse(value._body));
     let data = JSON.parse(value._body)
+    this.loginService.setUser(data.user[0])
+
     window.location.href = '/'
 
   }
