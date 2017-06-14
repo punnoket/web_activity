@@ -11,6 +11,7 @@ var mongoose = require('mongoose');
 
 var checkauth = false
 var idUser
+var username
 
 function checkAuth(req, res, next) {
   console.log(checkauth);
@@ -297,7 +298,7 @@ router.post('/login', function(req, res) {
       req.session.inSession = true;
       checkauth = true
       idUser = docs[0]._id;
-
+      username = req.body.username;
 
       res.json({
         'success': req.session.inSession,
@@ -321,9 +322,11 @@ router.get('/content', checkAuth, function(req, res) {
 });
 
 router.get('/check_auth', function(req, res) {
+
   console.log(req.session.user);
   res.json({
-    'success': checkauth
+    'success': checkauth,
+    'username': username
 
   });
 });
