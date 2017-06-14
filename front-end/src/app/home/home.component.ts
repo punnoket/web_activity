@@ -196,7 +196,10 @@ export class HomeComponent implements OnInit {
     let temp = this.activitiesTemp
     this.activities = new Array()
     for (let i of temp) {
-      if (i.name.toUpperCase().search(name.toUpperCase()) == -1) {
+      if(name==="["){
+
+      }
+      else if (i.name.toUpperCase().search(name.toUpperCase()) == -1) {
         console.log("-1")
       } else if (name === "") {
         this.activities = this.activitiesTemp

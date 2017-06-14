@@ -34,7 +34,7 @@ p {
 
 .container-fluid {
   background: linear-gradient(#1d3156, #8506A9);
-  padding-top: 70px;
+  padding-top: 50px;
   padding-bottom: 70px;
   /* Black */
   /*color: #1d3156;*/
@@ -42,7 +42,7 @@ p {
 }
 
 .containe-fluid {
- 
+
   padding-top: 70px;
   padding-bottom: 70px;
   /* Black */
