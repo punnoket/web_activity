@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   private indexOfChoice
   private checkAuth
  
-  private slideIndex = 1;
+  private slideIndex = 0;
  
   constructor(private loginService: LoginService, private getactivity: GetAcService) {
     
@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
+    this.showDivs(this.slideIndex);
   }
 
   public test() {

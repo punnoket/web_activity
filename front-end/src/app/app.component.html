@@ -44,7 +44,8 @@
       <input #fac type="text" value="" placeholder="Faculty" id="username" />
       <input #id type="text" value="" placeholder="StudentID" id="username" />
 
-      <button href="javascript:void(0)" onclick="document.getElementById('regis_light').style.display='none';document.getElementById('regis_fade').style.display='none'" (click)="register(username.value, password.value,name.value,fac.value,id.value)">Register</button>
+      <button href="javascript:void(0)" onclick="document.getElementById('regis_light').style.display='none';document.getElementById('regis_fade').style.display='none'"
+        (click)="register(username.value, password.value,name.value,fac.value,id.value)">Register</button>
 
     </div>
   </div>
@@ -54,8 +55,14 @@
     <div class="container">
       <div class="navbar-header">
 
-        <a class="navbar-brand" routerLink="home" routerLinkActive="active">Event TU</a>
-        
+        <!--<a class="navbar-brand" routerLink="home" routerLinkActive="active">Event TU</a>-->
+        <div id="logo" class="col-sm-2">
+          <a href="http://localhost:4200/home">
+                <br>
+                <img src="box.png" alt="homelogo">
+          </a>
+        </div>
+
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
@@ -76,7 +83,7 @@
 
   <div class="container">
     <router-outlet></router-outlet>
-   
+
   </div>
 
 
