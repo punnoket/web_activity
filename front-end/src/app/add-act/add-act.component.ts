@@ -40,19 +40,24 @@ export class AddActComponent implements OnInit {
 
 
   add(name: String, location: String, description: String, exprie: String, date: String) {
-    this.getChoice()
-    let activity = {
-      'name': name,
-      'type': this.type,
-      'location': location,
-      'description': description,
-      'image': this.image,
-      'exprie': exprie,
-      'date': date,
-      'choice': this.arrChoice
+
+    if (name === "" && location === "" && description === "") {
+      alert("กรุณาใส่ข้อมูลให้ครบ")
+    } else {
+      this.getChoice()
+      let activity = {
+        'name': name,
+        'type': this.type,
+        'location': location,
+        'description': description,
+        'image': this.image,
+        'exprie': exprie,
+        'date': date,
+        'choice': this.arrChoice
+      }
+      console.log(activity)
+      this.add_activity.addActivity(activity).subscribe(data => this.getData(data));
     }
-    console.log(activity)
-    this.add_activity.addActivity(activity).subscribe(data => this.getData(data));
   }
   addp(a) {
 
@@ -83,6 +88,10 @@ export class AddActComponent implements OnInit {
 
   private getData = function(value) {
     console.log(JSON.parse(value._body));
+    if (JSON.parse(value._body).success) {
+      alert("เพิ่มกิจกรรมสำเร็จเเล้ว")
+      window.location.href = '/'
+    }
 
   }
 
