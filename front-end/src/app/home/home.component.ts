@@ -140,12 +140,6 @@ export class HomeComponent implements OnInit {
 }
  
 
-    // if (n > x.length) { this.slideIndex = 1 }
-    // if (n < 1) { this.slideIndex = x.length }
-    // for (i = 0; i < x.length; i++) {
-    //   x[i].style.display = "none";
-    // }
-    // x[this.slideIndex - 1].style.display = "block";
   }
 
 

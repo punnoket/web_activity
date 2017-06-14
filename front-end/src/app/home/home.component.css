@@ -20,9 +20,7 @@ p {
   font-family: 'Ubuntu', sans-serif;
 }
 
-.bg-4 {
-  font-family: 'Ubuntu', sans-serif;
-}
+
 
 .event {
   color: #fff;
@@ -367,7 +365,8 @@ h3, h4 {
 h5 {
   color: white;
   font-size: 30px;
-  font-family: Montserrat;
+  letter-spacing: 10px;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .container {
@@ -517,9 +516,10 @@ h5 {
 }
 
 footer {
-  background-color: #1d3156;
-  color: #1d3156;
+  /*background-color: #1d3156;*/
+  /*color: #1d3156;*/
   padding: 32px;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 footer a {
@@ -527,7 +527,7 @@ footer a {
 }
 
 footer a:hover {
-  color: #777;
+  /*color: #777;*/
   text-decoration: none;
 }
 
