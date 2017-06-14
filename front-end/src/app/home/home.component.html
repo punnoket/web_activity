@@ -42,7 +42,7 @@
     <img class="mySlides" src="themouses.jpg" style="width:100%">
     <img class="mySlides" src="bodyslam.jpg" style="width:100%">
 
-    
+
     <button class="w3-button w3-black w3-display-left" (click)="plusDivs(-1)">&#10094;</button>
     <button class="w3-button w3-black w3-display-right" (click)="plusDivs(1)">&#10095;</button>
 
@@ -55,10 +55,10 @@
         <button class="tablinks" (click)="getType('vote')" style="position:relative; left:-220px">Vote</button>
         <button class="tablinks" (click)="getType('join')" style="position:relative; left:-260px">Join</button>
         <button class="tablinks" (click)="getType('announce')" style="position:relative; left:-300px">Announce</button>
-        <input id="search" type="text" placeholder="Search...." style="position:relative; right:-150px" />
-        <input type="submit" value="Search" id="submitButton" style="position:relative; right:-150px" />
+        <input #name (keyup)="search($event.target.value)" id="search" type="text" placeholder="Search...." style="position:relative; right:-150px" />
+        <input (click)="search(name.value)" type="submit" value="Search" id="submitButton" style="position:relative; right:-150px" />
 
- 
+
 
       </div>
 
@@ -132,7 +132,7 @@
               <div class="event">
                 <div class="event-title">
                   <br>
-                  <p style="position:relative; left:-20px;"><b>{{activity.name}}</b></p>
+                  <p style="position:relative;font-size: 18px;"><b>{{activity.name}}</b></p>
 
                   <p align="left"><i class="fa fa-calendar-o fa-fw"></i> {{activity.date}}</p>
                   <p align="left"><i class="fa fa-clock-o fa-fw"></i> {{activity.time}}</p>

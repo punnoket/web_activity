@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
 
   private objectData: any;
   private activities
+  private activitiesTemp
   private choices
   private keyJoin
   private keyVote
@@ -55,6 +56,7 @@ export class HomeComponent implements OnInit {
     console.log(JSON.parse(value._body));
 
     this.activities = JSON.parse(value._body).activity
+    this.activitiesTemp = JSON.parse(value._body).activity
 
   }
 
@@ -150,7 +152,7 @@ export class HomeComponent implements OnInit {
 
   public joinResult(id: String) {
     console.log(id);
-    
+
     this.getactivity.joinResult(id).subscribe(data => this.getJoinResult(data))
   }
   public voteResult(id: String) {
@@ -167,6 +169,45 @@ export class HomeComponent implements OnInit {
   getVoteResult(data) {
     this.voteResultScore = JSON.parse(data._body).result
   }
+
+
+  getType(type: String) {
+    if (type != 'total') {
+      this.activities = this.activitiesTemp
+      let temp = this.activitiesTemp
+      this.activities = new Array()
+      for (let i of temp) {
+        if (type === i.type) {
+          this.activities.push(i)
+
+        }
+      }
+
+      console.log(this.activities)
+    } else {
+      this.activities = this.activitiesTemp
+    }
+
+  }
+
+  search(name: String) {
+    console.log(name)
+    this.activities = this.activitiesTemp
+    let temp = this.activitiesTemp
+    this.activities = new Array()
+    for (let i of temp) {
+      if (i.name.toUpperCase().search(name.toUpperCase()) == -1) {
+        console.log("-1")
+      } else if (name === "") {
+        this.activities = this.activitiesTemp
+      } else {
+        this.activities.push(i)
+      }
+    }
+
+    console.log(this.activities)
+  }
+
 
 
 }

@@ -1,7 +1,6 @@
 body {
   font-family: Montserrat;
   font-family: 'Kanit', sans-serif;
- 
 }
 
 #bord {
@@ -11,7 +10,7 @@ body {
 
 .event {
   background-color: #F3A530;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Ubuntu', sans-serif;
   font-family: 'Kanit', sans-serif;
   padding: 7px;
@@ -583,5 +582,3 @@ footer a:hover {
 textarea {
   resize: none;
 }
-
-
