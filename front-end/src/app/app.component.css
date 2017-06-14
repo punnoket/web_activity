@@ -95,6 +95,15 @@ h1 {
   overflow: auto;
 }
 
+#myNavbar {
+  margin-left: 80%;
+}
+
+#g {
+  width: 100%;
+  margin-top: 5%;
+}
+
 @media screen and (max-width: 700px) {
   .box {
     width: 70%;
@@ -122,14 +131,29 @@ h1 {
 .regis_white_content {
   display: none;
   position: fixed;
-  top: 25%;
-  left: 25%;
-  width: 50%;
-  height: 50%;
+  top: 10%;
+  left: 30%;
+  width: 30%;
   padding: 16px;
   background-color: white;
   z-index: 1002;
   overflow-y: auto;
+  margin-left: 50px;
+}
+
+#c {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+#c:hover {
+  color: #F0D041;
 }
 
 .black_overlay {
@@ -147,32 +171,36 @@ h1 {
   overflow-y: auto;
 }
 
+#color {
+  background-color: #F3A530;
+  border: 1px solid #F3A530;
+}
+
 .white_content {
   display: none;
   position: fixed;
-  top: 25%;
-  left: 25%;
-  width: 50%;
-  height: 50%;
+  top: 20%;
+  left: 30%;
+  width: 30%;
   padding: 16px;
   background-color: white;
   z-index: 1002;
   overflow-y: auto;
+  margin-left: 50px;
 }
 
 .logo {
   width: 213px;
   height: 36px;
   /*background: url('http://i.imgur.com/fd8Lcso.png') no-repeat;*/
-  margin: 30px auto;
+  /*margin: 30px auto;*/
 }
 
 .login-block {
   width: 320px;
-  padding: 20px;
+  padding-bottom: 20px;
   background: #fff;
   border-radius: 5px;
-  border-top: 5px solid #ff656c;
   margin: 0 auto;
 }
 
@@ -242,12 +270,12 @@ h1 {
   background: black;
 }
 
+.logo-small {
+  color: #f4511e;
+  font-size: 50px;
+}
 
- .logo-small {
-      color: #f4511e;
-      font-size: 50px;
-  }
-  .logo {
-      color: #f4511e;
-      font-size: 200px;
-  }
+.logo {
+  color: #f4511e;
+  font-size: 200px;
+}

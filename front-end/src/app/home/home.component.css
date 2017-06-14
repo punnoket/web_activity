@@ -5,6 +5,14 @@ body {
   background-color: #1d3156;
 }
 
+.event {
+  background-color: #F3A530;
+  font-size: 15px;
+  font-family: 'Ubuntu', sans-serif;
+  padding: 7px;
+  margin-top: 4%;
+}
+
 p {
   color: black;
 }
@@ -18,23 +26,6 @@ p {
 
 .bg-2 {
   font-family: 'Ubuntu', sans-serif;
-}
-
-
-
-.event {
-  color: #fff;
-  font-size: 15px;
-  font-family: 'Ubuntu', sans-serif;
-  margin-top: 6%;
-  /*margin-top: 0;*/
-}
-
-.event-title {
-  font-size: 15px;
-  font-family: 'Ubuntu', sans-serif;
-  margin-top: 5px;
-  padding: 7px;
 }
 
 .container-fluid {
@@ -537,12 +528,4 @@ footer a:hover {
 
 textarea {
   resize: none;
-}
-
-.event {
-  background-color: #F3A530;
-  font-size: 15px;
-  font-family: 'Ubuntu', sans-serif;
-  padding: 7px;
-  margin-top: 5px;
 }
