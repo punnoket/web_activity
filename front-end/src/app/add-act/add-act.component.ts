@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AddActivityService } from '../add_activity.service';
+import { GetAcService } from '../getactivity.service';
 
 
 @Component({
@@ -14,7 +15,22 @@ export class AddActComponent implements OnInit {
   private image
   private hide = true
   private type = "vote"
-  constructor(private add_activity: AddActivityService) { }
+  private checkAuth
+  constructor(private add_activity: AddActivityService, private getActivity: GetAcService) {
+    this.getActivity.checkAuth().subscribe(data => this.getAuthData(data))
+
+
+  }
+  private getAuthData = function(value) {
+
+    this.checkAuth = JSON.parse(value._body).success
+    console.log(this.checkAuth)
+    if (!this.checkAuth) {
+      alert("Please Login")
+      window.location.href = '/'
+    }
+
+  }
 
   ngOnInit() {
 

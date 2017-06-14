@@ -51,6 +51,28 @@ export class GetAcService {
     return this.http.post('http://localhost:3000/vote_choice_activity', body, options).map(data => data);
   }
 
+  public voteResult(id: String): Observable<any> {
+    console.log("join")
+    let data = {
+      "id": id
+    }
+    let body = JSON.stringify(data);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post('http://localhost:3000/result_vote', body, options).map(data => data);
+  }
+
+  public joinResult(id: String): Observable<any> {
+    console.log("join")
+    let data = {
+      "id": id
+    }
+    let body = JSON.stringify(data);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post('http://localhost:3000/result_join', body, options).map(data => data);
+  }
+
 
 
 }

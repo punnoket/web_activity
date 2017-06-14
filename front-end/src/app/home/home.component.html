@@ -72,60 +72,94 @@
 
             <div *ngIf="activity.type==='vote'">
               <div id="vote_content" class="vote_content">
+                <a href="javascript:void(0)" onclick="document.getElementById('vote_content').style.display='none';document.getElementById('vote_fade').style.display='none'" class="close" id="cc">&times;</a>
+                <div id="bord">
+                  <div *ngFor="let c of choices; let i = index" id="li">
+                    <!-- <li id="li"> -->
+                    <h6><input #choice type="radio" id="s-option" name="selector" (change)="onSelectionChange(i)">
+                    {{c.choice}}</h6>
+                    <!-- </li> -->
+                  </div>
+                  <p id="pp">Please enter your key</p>
+                  <input #key type="text">
+                  <button id="but" onclick="document.getElementById('vote_content').style.display='none';document.getElementById('vote_fade').style.display='none'" type="button" class="button" (click)='checkMatchKeyVote(key.value)'>Vote</button><br>
 
-                <a href="javascript:void(0)" onclick="document.getElementById('vote_content').style.display='none';document.getElementById('vote_fade').style.display='none'">Close</a>
-                <div *ngFor="let c of choices; let i = index">
-
-
-                  <li>
-                    <input #choice type="radio" id="s-option" name="selector" (change)="onSelectionChange(i)">
-                    <label>{{c.choice}}</label>
-
-                  </li>
 
                 </div>
-                <p>Please enter your key</p>
-                <input #key type="text">
-                <button onclick="document.getElementById('vote_content').style.display='none';document.getElementById('vote_fade').style.display='none'"
-                  type="button" class="button" (click)='checkMatchKeyVote(key.value)'>Vote</button>
+
+
+
               </div>
               <div id="vote_fade" class="vote_overlay"></div>
             </div>
 
 
             <div id="join_content" class="join_content">
-              <a href="javascript:void(0)" onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'">Close</a>
-              <p>Please enter your key</p>
-              <input #key type="text">
-              <button onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'"
-                type="button" class="button" (click)='checkMatchKey(key.value)'>join us</button>
+              <div id="bord">
+                <a href="javascript:void(0)" onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'" class="close" id="cc">&times;</a>
+                <p id="pp">Please enter your key</p>
+                <input #key type="text">
+                <button onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'" type="button" class="button" id="but" (click)='checkMatchKey(key.value)'>join us</button>
+              </div>
+
 
             </div>
             <div id="join_fade" class="join_overlay"></div>
 
+
+            <div id="join_result_content" class="join_content">
+              <div id="bord">
+                <a href="javascript:void(0)" onclick="document.getElementById('join_result_content').style.display='none';document.getElementById('join_result_fade').style.display='none'" class="close" id="cc">&times;</a>
+                <p id="pp">ขณะนี้มีผู้เข้าร่วม {{joinResultScore}} คน</p>
+
+              </div>
+
+            </div>
+            <div id="join_result_fade" class="join_overlay"></div>
+
+            <div id="vote_result_content" class="join_content">
+              <div id="bord">
+                <a href="javascript:void(0)" onclick="document.getElementById('vote_result_content').style.display='none';document.getElementById('vote_result_fade').style.display='none'" class="close" id="cc">&times;</a>
+                <p id="pp">ผลโหวตมาแรง {{voteResultScore}} คน</p>
+
+              </div>
+
+            </div>
+            <div id="vote_result_fade" class="join_overlay"></div>
+
             <div id="each" class="event">
-              <img src="{{activity.image}}" style="width: 328px;height: 330px ; padding:0px;margin:0px;">
+              <img src="{{activity.image}}" style="width: 328px;height: 330px ; ">
               <div class="event">
                 <div class="event-title">
                   <br>
                   <p style="position:relative; left:-20px;"><b>{{activity.name}}</b></p>
 
-                  <p align="left"><i class="fa fa-clock-o fa-fw"></i> {{activity.date}}</p><br>
+                  <p align="left"><i class="fa fa-calendar-o fa-fw"></i> {{activity.date}}</p>
+                  <p align="left"><i class="fa fa-clock-o fa-fw"></i> {{activity.time}}</p>
                   <p align="left"><i class="fa fa-map-marker fa-fw"></i> {{activity.location}}</p>
+                  <p align="left"><i class="fa fa-info fa-fw"></i>{{activity.description}}</p>
+                  <p align="left" style="color:#c10505;"><i class="fa fa-exclamation-triangle fa-fw"></i> {{activity.exprie}}</p>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-lg-6" id="left">
                   <div *ngIf="activity.type==='vote'">
-                    <button type="button" class="button-event"><span  class="glyphicon glyphicon-heart"></span><a (click)='getChoices(activity._id)' href="javascript:void(0)" onclick="document.getElementById('vote_content').style.display='block';document.getElementById('vote_fade').style.display='block'">&nbsp;Vote</a></button>
+                    <button type="button" class="button-event"><span  class="glyphicon glyphicon-heart"></span><a (click)='getChoices(activity._id)' href="javascript:void(0)" onclick="document.getElementById('vote_content').style.display='block';document.getElementById('vote_fade').style.display='block'">&nbsp;VOTE</a></button>
                   </div>
                   <div *ngIf="activity.type==='join'">
-                    <button type="button" class="button-event"><a (click)='join(activity._id)' href="javascript:void(0)" onclick="document.getElementById('join_content').style.display='block';document.getElementById('join_fade').style.display='block'">join us</a></button>
-
+                    <button type="button" class="button-event"><a (click)='join(activity._id)' href="javascript:void(0)" onclick="document.getElementById('join_content').style.display='block';document.getElementById('join_fade').style.display='block'">JOIN</a></button>
                   </div>
                 </div>
-                <div class="col-lg-6" id="right"><button type="button" class="button-event">score</button></div>
+                <div class="col-lg-6" id="rigt">
+                  <div *ngIf="activity.type==='vote'">
+                    <button type="button" class="button-event"><a (click)='voteResult(activity._id)' href="javascript:void(0)" onclick="document.getElementById('vote_result_content').style.display='block';document.getElementById('vote_result_fade').style.display='block'">RESULT</a></button>
+                  </div>
+                  <div *ngIf="activity.type==='join'">
+                    <button type="button" class="button-event"><a (click)='joinResult(activity._id)' href="javascript:void(0)" onclick="document.getElementById('join_result_content').style.display='block';document.getElementById('join_result_fade').style.display='block'">RESULT</a></button>
+                  </div>
+                </div>
+
               </div>
 
 

@@ -25,9 +25,9 @@ export class HomeComponent implements OnInit {
   private indexOfChoice
   private checkAuth
 
- 
+
   private slideIndex = 0;
- 
+
 
 
 
@@ -35,7 +35,6 @@ export class HomeComponent implements OnInit {
 
     this.getactivity.getActivity().subscribe(data => this.getActivityData(data))
     this.getactivity.checkAuth().subscribe(data => this.getAuthData(data))
-
 
 
   }
@@ -114,6 +113,9 @@ export class HomeComponent implements OnInit {
 
   private getData = function(value) {
     console.log(JSON.parse(value._body));
+    if (!(JSON.parse(value._body).success)) {
+      alert("please Login")
+    }
 
   }
 
@@ -125,8 +127,8 @@ export class HomeComponent implements OnInit {
 
 
 
-
   public plusDivs(n: number) {
+
     this.showDivs(this.slideIndex += n);
   }
 
@@ -134,6 +136,7 @@ export class HomeComponent implements OnInit {
   public showDivs(n: number) {
     let i;
     let x = <HTMLElement[]><any>document.getElementsByClassName("mySlides");
+
 
     if (n > x.length) { this.slideIndex = 1 }
     if (n < 1) { this.slideIndex = x.length }
@@ -143,6 +146,24 @@ export class HomeComponent implements OnInit {
 
     }
     x[this.slideIndex - 1].style.display = "block";
+  }
+
+  public joinResult(id: String) {
+    this.getactivity.joinResult(id).subscribe(data => this.getJoinResult(data))
+  }
+  public voteResult(id: String) {
+    this.getactivity.voteResult(id).subscribe(data => this.getVoteResult(data))
+  }
+
+  private joinResultScore
+  getJoinResult(data) {
+    this.joinResultScore = JSON.parse(data._body).result
+    console.log(this.joinResultScore)
+  }
+
+  private voteResultScore
+  getVoteResult(data) {
+    this.voteResultScore = JSON.parse(data._body).result
   }
 
 
