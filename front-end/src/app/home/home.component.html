@@ -82,8 +82,7 @@
                 </div>
                 <p>Please enter your key</p>
                 <input #key type="text">
-                <button onclick="document.getElementById('vote_content').style.display='none';document.getElementById('vote_fade').style.display='none'"
-                  type="button" class="button" (click)='checkMatchKeyVote(key.value)'>Vote</button>
+                <button onclick="document.getElementById('vote_content').style.display='none';document.getElementById('vote_fade').style.display='none'" type="button" class="button" (click)='checkMatchKeyVote(key.value)'>Vote</button>
               </div>
               <div id="vote_fade" class="vote_overlay"></div>
             </div>
@@ -93,14 +92,13 @@
               <a href="javascript:void(0)" onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'">Close</a>
               <p>Please enter your key</p>
               <input #key type="text">
-              <button onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'"
-                type="button" class="button" (click)='checkMatchKey(key.value)'>join us</button>
+              <button onclick="document.getElementById('join_content').style.display='none';document.getElementById('join_fade').style.display='none'" type="button" class="button" (click)='checkMatchKey(key.value)'>join us</button>
 
             </div>
             <div id="join_fade" class="join_overlay"></div>
 
             <div id="each" class="event">
-              <img src="{{activity.image}}" style="width: 340px;height: 330px ; padding:0px;margin:0px;">
+              <img src="{{activity.image}}" style="width: 328px;height: 330px ; padding:0px;margin:0px;">
               <div class="event">
                 <div class="event-title">
                   <br>

@@ -16,7 +16,7 @@
   <!-- bink add-->
 
   <div id="light" class="white_content">
-    <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+    <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" class="close" id="c">&times;</a>
     <div class="logo"></div>
     <div class="login-block">
 
@@ -24,16 +24,14 @@
       <input #username type="text" value="" placeholder="Username" id="username" />
       <input #password type="password" value="" placeholder="Password" id="password" />
 
-      <button href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"
-        (click)="login(username.value, password.value)">Login</button>
-      <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false"
-        data-use-continue-as="false"> <button (click)="loginFacebook()" style="background-color: #3b5998;color: white; border:2px solid #3b5998">Login with facebook</button></div>
+      <button id="color" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" (click)="login(username.value, password.value)">Login</button>
+      <!-- <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"> <button (click)="loginFacebook()" style="background-color: #3b5998;color: white; border:2px solid #3b5998">Login with facebook</button></div> -->
     </div>
   </div>
   <div id="fade" class="black_overlay"></div>
 
   <div id="regis_light" class="regis_white_content">
-    <a href="javascript:void(0)" onclick="document.getElementById('regis_light').style.display='none';document.getElementById('regis_fade').style.display='none'">Close</a>
+    <a href="javascript:void(0)" onclick="document.getElementById('regis_light').style.display='none';document.getElementById('regis_fade').style.display='none'" class="close" id="c">&times;</a>
     <div class="logo"></div>
     <div class="login-block">
 
@@ -44,8 +42,12 @@
       <input #fac type="text" value="" placeholder="Faculty" id="username" />
       <input #id type="text" value="" placeholder="StudentID" id="username" />
 
+<<<<<<< HEAD
       <button href="javascript:void(0)" onclick="document.getElementById('regis_light').style.display='none';document.getElementById('regis_fade').style.display='none'"
         (click)="register(username.value, password.value,name.value,fac.value,id.value)">Register</button>
+=======
+      <button id='color' href="javascript:void(0)" onclick="document.getElementById('regis_light').style.display='none';document.getElementById('regis_fade').style.display='none'" (click)="register(username.value, password.value,name.value,fac.value,id.value)">Register</button>
+>>>>>>> 8848236f25278307de2f7920cbd80a64097c5b9d
 
     </div>
   </div>
@@ -55,6 +57,7 @@
     <div class="container">
       <div class="navbar-header">
 
+<<<<<<< HEAD
         <!--<a class="navbar-brand" routerLink="home" routerLinkActive="active">Event TU</a>-->
         <div id="logo" class="col-sm-2">
           <a href="http://localhost:4200/home">
@@ -62,14 +65,35 @@
                 <img src="box.png" alt="homelogo">
           </a>
         </div>
+=======
+        <a class="navbar-brand" routerLink="home" routerLinkActive="active">Event TU</a>
+>>>>>>> 8848236f25278307de2f7920cbd80a64097c5b9d
 
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a routerLink="/add-act" routerLinkActive="active">ADD</a></li>
-          <div *ngIf="!check">
-            <li><a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">LOGIN</a></li>
-            <li><a href="javascript:void(0)" onclick="document.getElementById('regis_light').style.display='block';document.getElementById('regis_fade').style.display='block'">REGISTER</a></li>
+        <ul class="nav navbar-nav navbar" id="g">
+
+          <div class="row" id="g">
+            <div class="col-lg-3">
+              <li><a routerLink="/add-act" routerLinkActive="active">ADD</a></li>
+
+            </div>
+            <div class="col-lg-5">
+              <div *ngIf="!check">
+                <li><a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">LOGIN</a></li>
+
+              </div>
+
+            </div>
+
+            <div class="col-lg-3">
+              <div *ngIf="!check">
+
+                <li><a href="javascript:void(0)" onclick="document.getElementById('regis_light').style.display='block';document.getElementById('regis_fade').style.display='block'">REGISTER</a></li>
+              </div>
+
+            </div>
+
           </div>
           <div *ngIf="check">
 
