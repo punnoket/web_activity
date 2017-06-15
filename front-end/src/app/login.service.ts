@@ -16,6 +16,7 @@ export class LoginService {
 
   public setUser(user: Object) {
     this.user = user
+    //console.log(this.getUser())
   }
   public getUser() {
     return this.user
@@ -31,6 +32,14 @@ export class LoginService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     return this.http.post('http://localhost:3000/login', body, options).map(data => data);
+  }
+
+  public getUserData(): Observable<any> {
+
+    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
+
+    let options = new RequestOptions({ method: RequestMethod.Get, headers: headers });
+    return this.http.get('http://localhost:3000/get_user', options).map(data => data);
   }
 
   public register(data: Object): Observable<any> {

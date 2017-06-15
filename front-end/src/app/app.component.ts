@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 import {LoginService} from './login.service';
 import { Subscription } from 'rxjs/Subscription';
 import { GetAcService } from './getactivity.service';
+import { HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
+
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -13,6 +15,8 @@ export class AppComponent {
   private objectData: any
   private check = false
   private username = ""
+  public user
+  userParse = "this.user"
 
   constructor(private loginService: LoginService, private getactivity: GetAcService) {
     this.getactivity.checkAuth().subscribe(data => this.getAuthData(data))
@@ -35,13 +39,16 @@ export class AppComponent {
     console.log(JSON.parse(value._body));
     let data = JSON.parse(value._body)
     this.loginService.setUser(data.user[0])
-
+    this.user = data.user[0]
     window.location.href = '/'
+
 
   }
 
-  logout() {
 
+
+  logout() {
+    this.loginService.setUser(null)
     this.loginService.logout().subscribe(data => this.getData(data));
   }
 

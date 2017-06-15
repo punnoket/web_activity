@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { GetAcService } from '../getactivity.service';
 
-
+import { AppComponent } from '../app.component';
 
 import { LoginService } from '../login.service';
 import { Subscription } from 'rxjs/Subscription';
@@ -25,8 +25,7 @@ export class HomeComponent implements OnInit {
   private idVote
   private indexOfChoice
   private checkAuth
-
-
+  private user
   private slideIndex = 0;
 
 
@@ -37,6 +36,7 @@ export class HomeComponent implements OnInit {
     this.getactivity.getActivity().subscribe(data => this.getActivityData(data))
     this.getactivity.checkAuth().subscribe(data => this.getAuthData(data))
 
+    this.loginService.getUserData().subscribe(data => this.getUserData(data))
 
   }
 
@@ -45,6 +45,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.showDivs(this.slideIndex);
+  }
+
+  private getUserData = function(value) {
+
+    this.user = JSON.parse(value._body).user
+    console.log(this.user)
+
   }
 
   public test() {
@@ -67,7 +74,8 @@ export class HomeComponent implements OnInit {
 
   }
 
-  public getChoices(id: String) {
+  public getChoices(id: String, acctivity: Object) {
+    console.log(acctivity)
     this.idVote = id
     for (let i of this.activities) {
       if (id === i._id) {
@@ -78,7 +86,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public join(id: String) {
+  public join(id: String, acctivity: Object) {
+    console.log(acctivity)
     this.idJoin = id
     for (let i of this.activities) {
       if (id === i._id) {
@@ -89,11 +98,23 @@ export class HomeComponent implements OnInit {
   }
 
   public checkMatchKey(key: String) {
-
+    let check = true
+    for (let idAc of this.user.history_activity) {
+      console.log(idAc === this.idJoin)
+      if (idAc === this.idJoin) {
+        check = false
+      }
+    }
     if (this.keyJoin === key) {
       this.checkJoin = true
       console.log("join !!!")
-      this.getactivity.join(this.idJoin).subscribe(data => this.getData(data))
+      if (check) {
+        this.getactivity.join(this.idJoin).subscribe(data => this.getData(data))
+        window.location.href = '/'
+      } else {
+        alert("ไม่สามารถกดเข้าร่วมซ้ำได้")
+        window.location.href = '/'
+      }
     } else {
 
       alert("wrong key !!!")
@@ -101,11 +122,25 @@ export class HomeComponent implements OnInit {
   }
 
   public checkMatchKeyVote(key: String) {
-    console.log(key + " " + this.keyVote)
+
+    let check = true
+    for (let idAc of this.user.history_activity) {
+
+      if (idAc === this.idVote) {
+        check = false
+      }
+    }
+
     if (this.keyVote === key) {
 
       console.log("vote !!!")
-      this.getactivity.vote(this.idVote, this.indexOfChoice).subscribe(data => this.getData(data))
+      if (check) {
+        this.getactivity.vote(this.idVote, this.indexOfChoice).subscribe(data => this.getData(data))
+        window.location.href = '/'
+      } else {
+        alert("ไม่สามารถกดเข้าร่วมซ้ำได้")
+        window.location.href = '/'
+      }
     } else {
 
       alert("wrong key !!!")
@@ -196,7 +231,10 @@ export class HomeComponent implements OnInit {
     let temp = this.activitiesTemp
     this.activities = new Array()
     for (let i of temp) {
-      if (i.name.toUpperCase().search(name.toUpperCase()) == -1) {
+      if (name === "[") {
+
+      }
+      else if (i.name.toUpperCase().search(name.toUpperCase()) == -1) {
         console.log("-1")
       } else if (name === "") {
         this.activities = this.activitiesTemp

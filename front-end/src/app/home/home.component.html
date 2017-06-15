@@ -147,10 +147,10 @@
               <div class="row">
                 <div class="col-lg-6" id="left">
                   <div *ngIf="activity.type==='vote'">
-                    <button type="button" class="button-event"><span  class="glyphicon glyphicon-heart"></span><a (click)='getChoices(activity._id)' href="javascript:void(0)" onclick="document.getElementById('vote_content').style.display='block';document.getElementById('vote_fade').style.display='block'">&nbsp;VOTE</a></button>
+                    <button type="button" class="button-event"><span  class="glyphicon glyphicon-heart"></span><a (click)='getChoices(activity._id,activity)' href="javascript:void(0)" onclick="document.getElementById('vote_content').style.display='block';document.getElementById('vote_fade').style.display='block'">&nbsp;VOTE</a></button>
                   </div>
                   <div *ngIf="activity.type==='join'">
-                    <button type="button" class="button-event"><a (click)='join(activity._id)' href="javascript:void(0)" onclick="document.getElementById('join_content').style.display='block';document.getElementById('join_fade').style.display='block'">JOIN</a></button>
+                    <button type="button" class="button-event"><a (click)='join(activity._id,activity)' href="javascript:void(0)" onclick="document.getElementById('join_content').style.display='block';document.getElementById('join_fade').style.display='block'">JOIN</a></button>
                   </div>
                 </div>
                 <div class="col-lg-6" id="rigt">
@@ -181,7 +181,6 @@
 
 
     </div>
-
 
 
 

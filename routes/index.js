@@ -232,6 +232,31 @@ router.post('/result_join', function(req, res) {
   })
 });
 
+var userData
+router.post('/user', function(req, res) {
+
+  UserModel.findById(req.body.id, function(err, doc) {
+
+    console.log(userData);
+    res.json({
+      'success': true,
+      'user': doc
+    });
+  })
+});
+
+router.get('/get_user', function(req, res, next) {
+
+  UserModel.findById(idUser, function(err, doc) {
+
+    console.log(userData);
+    res.json({
+      'success': true,
+      'user': doc
+    });
+  })
+});
+
 
 //register
 router.post('/register', function(req, res) {
@@ -317,7 +342,7 @@ router.get('/auth/facebook/callback',
 //login user
 
 router.post('/login', function(req, res) {
-  console.log("!!!!!!!!!!!!!!!!!!!!!!!");
+
   UserModel.find({
     username: req.body.username
   }, function(err, docs) {
@@ -337,7 +362,7 @@ router.post('/login', function(req, res) {
       checkauth = true
       idUser = docs[0]._id;
       username = req.body.username;
-
+      userData = docs[0]
       res.json({
         'success': req.session.inSession,
         'text': 'Login success',
@@ -360,8 +385,7 @@ router.get('/content', checkAuth, function(req, res) {
 });
 
 router.get('/check_auth', function(req, res) {
-  var birthday = new Date(1988, 3, 15);
-  console.log(birthday.toString());
+
   console.log(req.session.user);
   res.json({
     'success': checkauth,
