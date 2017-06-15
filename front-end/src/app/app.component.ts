@@ -38,9 +38,13 @@ export class AppComponent {
   private getUserData = function(value) {
     console.log(JSON.parse(value._body));
     let data = JSON.parse(value._body)
-    this.loginService.setUser(data.user[0])
-    this.user = data.user[0]
-    window.location.href = '/'
+    if (data.success) {
+      this.loginService.setUser(data.user[0])
+      this.user = data.user[0]
+      window.location.href = '/'
+    } else {
+      alert(data.text)
+    }
 
 
   }

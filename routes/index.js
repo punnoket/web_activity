@@ -346,6 +346,7 @@ router.post('/login', function(req, res) {
   UserModel.find({
     username: req.body.username
   }, function(err, docs) {
+
     if (docs.length === 0) {
       res.json({
         'success': false,
