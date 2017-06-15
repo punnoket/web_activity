@@ -231,7 +231,9 @@ export class HomeComponent implements OnInit {
     let temp = this.activitiesTemp
     this.activities = new Array()
     for (let i of temp) {
+
       if (name === "[") {
+
 
       }
       else if (i.name.toUpperCase().search(name.toUpperCase()) == -1) {
