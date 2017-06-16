@@ -409,6 +409,8 @@ router.get('/get_activities_all', function(req, res) {
 router.get('/logout', function(req, res) {
   req.session.destroy();
   checkauth = false
+  userData = {}
+  idUser = 0
   res.send("logout success!");
 });
 

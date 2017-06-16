@@ -75,6 +75,10 @@ export class HomeComponent implements OnInit {
   }
 
   public getChoices(id: String, acctivity: Object) {
+    if (this.user === null) {
+      alert("Please Login")
+      window.location.href = "/"
+    }
     console.log(acctivity)
     this.idVote = id
     for (let i of this.activities) {
@@ -87,6 +91,10 @@ export class HomeComponent implements OnInit {
   }
 
   public join(id: String, acctivity: Object) {
+    if (this.user === null) {
+      alert("Please Login")
+      window.location.href = "/"
+    }
     console.log(acctivity)
     this.idJoin = id
     for (let i of this.activities) {
@@ -135,10 +143,14 @@ export class HomeComponent implements OnInit {
 
       console.log("vote !!!")
       if (check) {
-        this.getactivity.vote(this.idVote, this.indexOfChoice).subscribe(data => this.getData(data))
-        window.location.href = '/'
+        if (this.indexOfChoice != undefined) {
+          this.getactivity.vote(this.idVote, this.indexOfChoice).subscribe(data => this.getData(data))
+          window.location.href = '/'
+        } else {
+          alert("กรุณาเลือกตัวเลือก")
+        }
       } else {
-        alert("ไม่สามารถกดเข้าร่วมซ้ำได้")
+        alert("ไม่สามารถโหวตซ้ำได้")
         window.location.href = '/'
       }
     } else {
